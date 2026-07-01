@@ -93,7 +93,7 @@ body {
 /* Links de navegación — compartidos entre desktop y móvil */
 .nav-item a {
     font-size: 1.1rem;
-    color: var(--color-white);
+    color: var(--color-text);
     text-decoration: none;
     font-weight: 600;
     font-family: var(--font-urbanist);
@@ -181,7 +181,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: var(--color-white);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
