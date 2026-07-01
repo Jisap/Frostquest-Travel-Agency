@@ -2,98 +2,133 @@ import React, { useEffect, useState } from 'react'
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // ⬅️ Estado para el menú móvil
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 500) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 500);
     }
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [])
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setSearchOpen(false);
+    }
+    if (searchOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    }
+  }, [searchOpen])
 
   return (
     <>
-      <nav className={`navbar navbar-expand-lg custom-nav position-fixed w-100 ${scrolled ? "black-them" : "white-them"}`}>
-        <div className='container-fluid d-flex justify-content-between align-items-center'>
-          <a href="#" className='logo navbar-brand'>Frost<span>Quest</span></a>
+      {/* Navbar */}
+      <nav className={`custom-nav ${scrolled ? 'nav-scrolled' : ''}`}>
 
-          <div className='d-flex align-items-center'>
-            <i className='bi bi-search search-icon me-2'
-              type="button"
-              data-bs-target="#searchModal" // ⬅️ Indica el div a colapsar
-              data-bs-toggle="modal"        // ⬅️ Indica que abre/cierra el modal 
-            ></i>
+        {/* Barra principal */}
+        <div className="nav-inner">
 
-            {/* Botón hamburguesa con React */}
+          {/* Logo */}
+          <a href="#" className="logo">
+            Frost<span>Quest</span>
+          </a>
+
+          {/* Links desktop — siempre visibles en pantallas grandes */}
+          <ul className="nav-links-desktop">
+            <li className="nav-item"><a href="#">Home</a></li>
+            <li className="nav-item"><a href="#">About</a></li>
+            <li className="nav-item"><a href="#">Tour</a></li>
+            <li className="nav-item"><a href="#">Blog</a></li>
+            <li className="nav-item"><a href="#">Contact</a></li>
+          </ul>
+
+          {/* Acciones: search + hamburguesa */}
+          <div className="nav-actions">
+            {/* Icono de búsqueda */}
             <button
-              className='navbar-toggler'
-              type="button"
-              onClick={() => setMenuOpen(!menuOpen)} // ⬅️ Toggle con React
-              aria-controls="navbarNav"
-              aria-expanded={menuOpen}
-              aria-label="Toggle navigation"
+              onClick={() => setSearchOpen(true)}
+              className="search-icon"
+              aria-label="Open search"
             >
-              <span className='navbar-toggler-icon'></span>
+              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+
+            {/* Botón hamburguesa — solo móvil */}
+            <button
+              className="navbar-toggler"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {menuOpen
+                  ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                }
+              </svg>
             </button>
           </div>
         </div>
 
-        {/* Menú controlado por React (sin clase 'collapse' de Bootstrap) */}
-        <div className={`navbar-collapse ${menuOpen ? 'show' : ''}`} id="navbarNav">
-          <ul className='navbar-nav align-items-center'>
-            <li className='nav-item'><a href="#">Home</a></li>
-            <li className='nav-item'><a href="#">About</a></li>
-            <li className='nav-item'><a href="#">Tour</a></li>
-            <li className='nav-item'><a href="#">Blog</a></li>
-            <li className='nav-item'><a href="#">Contact</a></li>
+        {/* Menú móvil desplegable */}
+        {menuOpen && (
+          <ul className="nav-links-mobile">
+            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Home</a></li>
+            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>About</a></li>
+            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Tour</a></li>
+            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Blog</a></li>
+            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Contact</a></li>
           </ul>
-        </div>
+        )}
       </nav>
 
-      {/* Modal de Bootstrap (sigue funcionando con data-bs-*) */}
-      <div
-        className='modal fade'               // ⬅️ Indica que es un modal
-        id="searchModal"                     // ⬅️ ID del modal
-        tabIndex="-1"                        // ⬅️ Indica que no es un elemento interactivo
-        aria-labelledby="searchModalLabel"
-        aria-hidden="true"
-      >
-        <div className='modal-dialog modal-dialog-centered'>
-          <div className='modal-content bg-dark text-white'>
-            <div className='modal-header border-0'>
-              <h5 className='modal-title' id="searchModalLabel">
-                Search
-              </h5>
-
+      {/* Modal de Búsqueda */}
+      {searchOpen && (
+        <div className="search-overlay" onClick={() => setSearchOpen(false)}>
+          <div className="search-modal" onClick={(e) => e.stopPropagation()}>
+            {/* Cabecera */}
+            <div className="search-modal-header">
+              <h3 className="search-modal-title">Search</h3>
               <button
-                type="button"
-                className='btn-close btn-close-white'
-                data-bs-dismiss='modal'
-                aria-label='Close'
+                onClick={() => setSearchOpen(false)}
+                className="search-modal-close"
+                aria-label="Close search"
               >
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
 
-            <div className='modal-body'>
-              <div className='input-group modal-input'>
-                <input type="text" className='form-control' placeholder="Search Here..." />
-                <span className='input-group-text bg-white'>
-                  <i className='bi bi-search text-dark'></i>
-                </span>
-              </div>
+            {/* Input */}
+            <div className="search-input-row">
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search destinations, tours..."
+                autoFocus
+              />
+              <button className="search-submit" aria-label="Search">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
             </div>
+
+            <p className="search-hint">Pulsa <kbd>Esc</kbd> para cerrar</p>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
