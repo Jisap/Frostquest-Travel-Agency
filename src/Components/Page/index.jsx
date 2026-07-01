@@ -32,7 +32,7 @@ const Index = () => {
         <SwiperSlide>
           <div className='hero hero1 flex flex-col justify-center items-center'>
             <div className='hero-content w-full flex flex-col justify-center items-center'>
-              <h2 className='text-white text-[3rem] opacity-0 animate-[Anim-top_0.3s_0.9s_forwards_linear]'>
+              <h2 className='text-white opacity-0 animate-[Anim-top_0.3s_0.9s_forwards_linear]'>
                 THE KINGDOM OF ICE
               </h2>
 
@@ -50,7 +50,7 @@ const Index = () => {
         <SwiperSlide>
           <div className='hero hero2 flex flex-col justify-center items-center'>
             <div className='hero-content w-full flex flex-col justify-center items-center'>
-              <h2 className='text-white text-[3rem] opacity-0 animate-[Anim-top_0.3s_0.9s_forwards_linear]'>
+              <h2 className='text-white opacity-0 animate-[Anim-top_0.3s_0.9s_forwards_linear]'>
                 THE KINGDOM OF ICE
               </h2>
 
@@ -68,7 +68,7 @@ const Index = () => {
         <SwiperSlide>
           <div className='hero hero3 flex flex-col justify-center items-center'>
             <div className='hero-content w-full flex flex-col justify-center items-center'>
-              <h2 className='text-white text-[3rem] opacity-0 animate-[Anim-top_0.3s_0.9s_forwards_linear]'>
+              <h2 className='text-white opacity-0 animate-[Anim-top_0.3s_0.9s_forwards_linear]'>
                 THE KINGDOM OF ICE
               </h2>
 
