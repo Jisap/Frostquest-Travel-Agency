@@ -58,7 +58,7 @@ body {
     border-bottom-right-radius: 100px;
     z-index: 999;
     transition: background-color 0.3s color 0.3s;
-    background-color: #000;
+    /* background-color: #000; */
 }
 
 .white-them a,
@@ -230,4 +230,106 @@ body {
     outline: none;
     box-shadow: none !important;
     border: none !important;
+}
+
+.hero {
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+    padding-top: 100px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/Hero-slider-1.webp);
+    background-repeat: no-repeat;
+    animation: Anim-zoom 1.5s forwards linear;
+}
+
+.hero2 {
+    background-image: url(assets/Hero-slider-2.webp);
+}
+
+.hero3 {
+    background-image: url(assets/Hero-slider-3.webp);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 5;
+    position: relative;
+}
+
+.hero-content::after {
+    content: "Green";
+    position: absolute;
+    top: 15%;
+    right: -7%;
+    font-size: 7rem;
+    font-weight: 600;
+    color: #9b9a9a;
+    /* opacity: 0; */
+    animation: Anim-RL var(--duration-regular) 1.3s forwards linear;
+}
+
+.hero-content::before {
+    content: "Land";
+    position: absolute;
+    top: 15%;
+    left: -7%;
+    font-size: 7rem;
+    font-weight: 600;
+    color: #9b9a9a;
+    /* opacity: 0; */
+    animation: Anim-LR var(--duration-regular) 1.3s forwards linear;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    /* opacity: 0; */
+    animation: Anim-top var(--duration-regular) .9s forwards linear;
+}
+
+.hero h1 {
+    font-family: var(--font-urbanist);
+    font-weight: 700;
+    font-size: 8rem;
+    line-height: 8rem;
+    /* opacity: 0; */
+    animation: Anim-height var(--duration-regular) .3s forwards linear;
+}
+
+.hero-btn {
+    width: 200px !important;
+    height: 60px;
+    border: 1px solid rgba(208, 201, 201, 0.5);
+    border-radius: 50px;
+    background-color: rgba(208, 201, 201, 0.2);
+    backdrop-filter: blur(8px);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* opacity: 0; */
+    animation: Anim-bottom var(--duration-regular) .3s forwards linear;
+}
+
+.hero-btn:hover {
+    border: 1px solid rgba(208, 201, 201, 0.5);
+    background-color: rgba(208, 201, 201, 0.2);
 }
