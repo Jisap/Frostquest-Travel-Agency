@@ -22,7 +22,7 @@
     --color-footer: #183153;
     --color-social: #434cda;
     --color-secondary: #54595f;
-    --color-prim-gradient: linear-gradient(90deg, #430e7 0%, #7d00fc 100%);
+    --color-prim-gradient: linear-gradient(90deg, #4300e7 0%, #7d00fc 100%);
     --color-btn-light: linear-gradient(90deg, #4300e7 0%, #7d00fc 100%);
 
     /* Duraciones (generan: duration-regular, duration-slow) */
