@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Canada, Gananoque Islands",
+    "image": "Images/Destination-image-1.webp",
+    "days": "7 Days",
+    "price": "$11000",
+    "location": "Canada",
+    "pere": "Far far away, behind the mountains, far from the countries Vokalia and Consonantia"
+  },
+  {
+    "id": 2,
+    "name": "France Eiffel Tower",
+    "image": "Images/Destination-image-2.webp",
+    "days": "7 Days",
+    "price": "$15000",
+    "location": "France",
+    "pere": "Visit the Eiffel Tower and the Louvre Museum as well as the Notre-Dame Cathedral"
+  },
+  {
+    "id": 3,
+    "name": "Shouth Africa Places",
+    "image": "Images/Destination-image-3.webp",
+    "days": "7 Days",
+    "price": "$13000",
+    "location": "Shouth Africa",
+    "pere": "Explore the beautiful landscapes of South Africa and its stunning wildlife"
+  },
+  {
+    "id": 4,
+    "name": "United Arab Emirates Desert",
+    "image": "Images/Destination-image-4.webp",
+    "days": "7 Days",
+    "price": "$19000",
+    "location": "Emirates",
+    "pere": "Visit the Burj Khalifa and the Dubai Mall as well as the Palm Jumeirah"
+  },
+  {
+    "id": 5,
+    "name": "Paradise Places",
+    "image": "Images/Destination-image-5.webp",
+    "days": "7 Days",
+    "price": "$35000",
+    "location": "London",
+    "pere": "Visit the Buckingham Palace and the Tower of London as well as the British Museum"
+  }
+]
