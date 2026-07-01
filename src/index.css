@@ -115,21 +115,100 @@ body {
 }
 
 .navbar-toggler {
-    color: var(--color-white);
-    background-color: var(--color-white) !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all var(--duration-regular);
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-size: 1.5em 1.5em;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 /* ⬇️ NUEVO: Control del menú con React */
 .navbar-collapse {
     display: none;
     background-color: #000;
-    padding: 1rem 0;
+    padding: 2rem 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease-out;
 }
 
 .navbar-collapse.show {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Animación de entrada */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar-collapse .navbar-nav {
+    width: 100%;
+    text-align: center;
+}
+
+.navbar-collapse .nav-item {
+    margin: 12px 0;
+}
+
+.navbar-collapse .nav-item a {
+    font-size: 1.3rem;
+    padding: 8px 0;
+    display: inline-block;
+    transition: all var(--duration-regular);
+}
+
+.navbar-collapse .nav-item a:hover {
+    transform: translateX(5px);
+    color: var(--color-primary) !important;
+}
+
+/* En pantallas grandes (≥992px) el menú siempre visible */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        animation: none;
+    }
+
+    .navbar-collapse .nav-item {
+        margin: 0;
+    }
+
+    .navbar-collapse .nav-item a {
+        font-size: 1.2rem;
+        padding: 0;
+    }
+
+    .navbar-collapse .nav-item a:hover {
+        transform: none;
+    }
 }
 
 /* En pantallas grandes (≥992px) el menú siempre visible */
