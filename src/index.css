@@ -108,7 +108,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-white);
+    background-color: var(--color-text);
     transition: width var(--duration-regular);
 }
 
@@ -117,6 +117,11 @@ body {
 }
 
 /* ---- Links Desktop ---- */
+
+/* .nav-item a                      → base (oscuro)
+     └─ .nav-links-desktop ... a    → más específico → blanco ✓
+     └─ (sin override en móvil)     → se queda con la base → oscuro ✓ 
+*/
 .nav-links-desktop {
     display: flex;
     flex-direction: row;
@@ -125,6 +130,14 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.nav-links-desktop .nav-item a {
+    color: var(--color-white);
+}
+
+.nav-links-desktop .nav-item a::after {
+    background-color: var(--color-white);
 }
 
 /* ---- Acciones (search + hamburguesa) ---- */
@@ -194,6 +207,7 @@ body {
     padding: 10px 0;
     display: inline-block;
     transition: all var(--duration-regular);
+    color: var(--color-text);
 }
 
 .nav-links-mobile .nav-item a:hover {
