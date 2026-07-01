@@ -190,7 +190,6 @@ body {
 .nav-links-mobile {
     list-style: none;
     margin: 0 16px;
-    /* separación lateral */
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
@@ -202,6 +201,10 @@ body {
     animation: slideDown 0.25s ease-out;
 }
 
+.nav-links-mobile .nav-item {
+    position: relative;
+}
+
 .nav-links-mobile .nav-item a {
     font-size: 1.2rem;
     padding: 10px 0;
@@ -210,13 +213,19 @@ body {
     color: var(--color-text);
 }
 
-.nav-links-mobile .nav-item a:hover {
-    transform: translateX(6px);
-    color: #a78bfa;
+.nav-links-mobile .nav-item a:hover::after {
+    width: 60%;
 }
 
 .nav-links-mobile .nav-item a::after {
-    display: none;
+    display: block;
+    left: 50%;
+    bottom: 4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: translateX(-50%);
+    transition: width var(--duration-regular);
 }
 
 @keyframes slideDown {
