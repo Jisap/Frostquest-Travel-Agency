@@ -32,18 +32,30 @@
 
 
 /* Tu reseteo base */
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
+}
+
+html {
     scroll-behavior: smooth;
-    font-family: var(--font-poppins);
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    font-family: var(--font-poppins);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 /* =============================================
@@ -56,12 +68,17 @@ body {
     left: 0;
     width: 100%;
     z-index: 999;
-    transition: background-color 0.3s ease;
     background-color: transparent;
+    border-bottom: 1px solid rgba(208, 201, 201, 0.5);
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .custom-nav.nav-scrolled {
-    background-color: #000;
+    background-color: #fff;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Fila principal: logo | links | acciones */
@@ -71,9 +88,7 @@ body {
     justify-content: space-between;
     height: 80px;
     padding: 0 8%;
-    border: 1px solid rgba(208, 201, 201, 0.5);
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
+    background-color: transparent;
 }
 
 /* Logo */
@@ -83,11 +98,19 @@ body {
     color: var(--color-white);
     text-decoration: none;
     flex-shrink: 0;
+    transition: color 0.3s ease;
 }
 
 .logo span {
     font-family: var(--font-kings);
     color: var(--color-white);
+    transition: color 0.3s ease;
+}
+
+/* Al hacer scroll, logo cambia a oscuro */
+.custom-nav.nav-scrolled .logo,
+.custom-nav.nav-scrolled .logo span {
+    color: var(--color-dark);
 }
 
 /* Links de navegación — compartidos entre desktop y móvil */
@@ -109,7 +132,7 @@ body {
     width: 0;
     height: 2px;
     background-color: var(--color-text);
-    transition: width var(--duration-regular);
+    transition: width 0.3s ease;
 }
 
 .nav-item a:hover::after {
@@ -134,10 +157,21 @@ body {
 
 .nav-links-desktop .nav-item a {
     color: var(--color-white);
+    transition: color 0.3s ease;
 }
 
 .nav-links-desktop .nav-item a::after {
     background-color: var(--color-white);
+    transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+/* Al hacer scroll, los links de desktop cambian a oscuros */
+.custom-nav.nav-scrolled .nav-links-desktop .nav-item a {
+    color: var(--color-dark);
+}
+
+.custom-nav.nav-scrolled .nav-links-desktop .nav-item a::after {
+    background-color: var(--color-dark);
 }
 
 /* ---- Acciones (search + hamburguesa) ---- */
@@ -159,11 +193,19 @@ body {
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color var(--duration-regular);
+    transition: color 0.3s ease, background-color var(--duration-regular);
 }
 
 .search-icon:hover {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+.custom-nav.nav-scrolled .search-icon {
+    color: var(--color-dark);
+}
+
+.custom-nav.nav-scrolled .search-icon:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Hamburguesa */
@@ -178,11 +220,19 @@ body {
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color var(--duration-regular);
+    transition: color 0.3s ease, background-color var(--duration-regular);
 }
 
 .navbar-toggler:hover {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+.custom-nav.nav-scrolled .navbar-toggler {
+    color: var(--color-dark);
+}
+
+.custom-nav.nav-scrolled .navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* ---- Menú móvil desplegable ---- */
@@ -706,4 +756,38 @@ body {
     .hero h2 {
         font-size: 1.1rem;
     }
+}
+
+.section-title {
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title h3 {
+    font-size: 2rem;
+}
+
+.section-title h2 {
+    font-family: var(--font-urbanist);
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.section-title span {
+    font-family: var(--font-kings) !important;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.section-title span img {
+    width: 30px;
+    height: 30px;
+}
+
+.section-title p {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 30%;
 }
