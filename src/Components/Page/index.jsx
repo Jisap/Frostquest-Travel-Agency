@@ -125,7 +125,7 @@ const Index = () => {
               <img src={plane} className='w-6 h-6' alt="" />
             </span>
 
-            <h2 className='font-urbanist text-5xl font-bold text-dark'>Top Destinations</h2>
+            <h2 className='font-urbanist text-3xl! md:text-5xl! font-bold text-dark'>Top Destinations</h2>
 
             <p className='text-base sm:text-lg text-center w-full px-6 text-secondary font-urbanist leading-relaxed'>
               Explore our top destinations voted by more than 100,000+ customers around the world
@@ -204,6 +204,9 @@ const Index = () => {
           Want to See Our Top Destinations. <a href="#" className='text-primary hover:underline! transition-all duration-regular'>Click here to View More</a>
         </p>
       </div>
+
+
+      {/* About */}
     </>
   )
 }
