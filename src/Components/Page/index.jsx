@@ -5,8 +5,13 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import { Navigation, EffectFade, Autoplay } from 'swiper/modules';
-import btnArrow from "./../../assets/btn-arrow.svg"
-import plane from "../../assets/plane.svg"
+import btnArrow from "./../../assets/btn-arrow.svg";
+import plane from "../../assets/plane.svg";
+import Destination from "../../Destination.json";
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import '@splidejs/react-splide/css';
+import { ArrowUpRight } from 'lucide-react';
 
 const Index = () => {
   const prevRef = useRef(null);
@@ -109,19 +114,95 @@ const Index = () => {
         </div>
       </div>
 
+
       {/* Destinations */}
-      <div className='destinations py-5 my-15'>
+      <div className='destinations py-20'>
         <div className='section-title'>
           <div className='text-center flex flex-col justify-center items-center gap-3'>
-            <span className='flex items-center gap-2'>
-              <img src={plane} className='img-fluid' alt="" />
+            <span className='flex items-center gap-2 font-kings text-primary uppercase text-lg font-light tracking-wider'>
+              <img src={plane} className='w-6 h-6' alt="" />
               <span>Travel destination</span>
-              <img src={plane} className='img-fluid' alt="" />
+              <img src={plane} className='w-6 h-6' alt="" />
             </span>
-            <h2>Top Destinations</h2>
-            <p>Explore our top destinations voted by more than 100,000+ customers around the world</p>
+
+            <h2 className='font-urbanist text-5xl font-bold text-dark'>Top Destinations</h2>
+
+            <p className='text-base sm:text-lg text-center w-full px-6 text-secondary font-urbanist leading-relaxed'>
+              Explore our top destinations voted by more than 100,000+ customers around the world
+            </p>
           </div>
         </div>
+
+        <div className='destination-wrapper mt-12'>
+          <Splide
+            hasTrack={false}
+            options={{
+              type: "loop",
+              drag: "free",
+              focus: "center",
+              gap: 30,
+              perPage: 3,
+              arrows: false,
+              pagination: false,
+              autoScroll: {
+                speed: 1,
+                autoStart: true,
+              },
+              breakpoints: {
+                1199: { perPage: 3 },
+                911: { perPage: 2 },
+                767: { perPage: 2 },
+                575: { perPage: 1 },
+                0: { perPage: 1 }
+              }
+            }}
+            extensions={{ AutoScroll }}
+          >
+            <SplideTrack>
+              {Destination.map((dest) => (
+                <SplideSlide key={dest.id}>
+                  <div className='dest-card group relative transition-transform duration-regular hover:-translate-y-2'>
+                    {/* Imagen */}
+                    <div className='relative overflow-hidden rounded-2xl h-[450px]'>
+                      <img
+                        src={dest.image}
+                        className='w-full h-full object-cover transition-transform duration-regular group-hover:scale-110'
+                        alt={dest.name}
+                      />
+                      {/* Precio - Badge con gradiente */}
+                      <span className='absolute top-5 right-5 bg-[image:var(--color-prim-gradient)] text-white font-semibold font-urbanist px-4 py-2 rounded-lg text-sm'>
+                        {dest.price}
+                      </span>
+                    </div>
+
+                    {/* Contenido flotante - Posicionado en la parte inferior izquierda */}
+                    <div className='absolute bottom-0 left-0 mx-4 mb-4 bg-white rounded-xl p-6 shadow-lg w-[65%]'>
+                      {/* Círculo decorativo con flecha - Solo visible en hover */}
+                      <div className='absolute top-3 right-3 w-5 h-5 bg-[image:var(--color-prim-gradient)] rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-regular '>
+                        <ArrowUpRight className='size-3 text-white text-sm' />
+                      </div>
+
+                      <h3 className='font-urbanist text-2xl font-bold mb-2 text-dark'>{dest.name}</h3>
+                      <p className='font-urbanist text-sm text-secondary mb-4 line-clamp-2'>{dest.pere}</p>
+
+                      {/* Línea divisoria */}
+                      <div className='border-t border-border my-3'></div>
+
+                      <div className='flex items-center gap-2 text-sm text-dark font-medium font-urbanist'>
+                        <i className='fa-solid fa-paper-plane text-primary'></i>
+                        <span>{dest.days}</span>
+                      </div>
+                    </div>
+                  </div>
+                </SplideSlide>
+              ))}
+            </SplideTrack>
+          </Splide>
+        </div>
+
+        <p className='text-center mt-12 text-lg text-secondary font-urbanist'>
+          Want to See Our Top Destinations. <a href="#" className='text-primary hover:underline! transition-all duration-regular'>Click here to View More</a>
+        </p>
       </div>
     </>
   )

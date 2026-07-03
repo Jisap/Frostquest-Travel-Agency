@@ -30,6 +30,19 @@
     --duration-slow: 0.6s;
 }
 
+@layer base {
+    a {
+        text-decoration: none;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
 
 /* Tu reseteo base */
 *,
@@ -789,5 +802,70 @@ ol {
 .section-title p {
     font-size: 1.2rem;
     text-align: center;
-    width: 30%;
+    width: 100%;
+}
+
+
+.dest-card {
+    height: 500px;
+}
+
+.dest-img {
+    height: 400px;
+}
+
+.dest-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: var(--transition-regular)
+}
+
+.dest-card:hover .dest-img img {
+    transform: scale(1.1);
+    filter: grayscale(100%);
+}
+
+.dest-price {
+    padding: 10px;
+    background-image: var(--color-prim-gradient);
+    color: var(--color-white);
+    border-radius: 10px;
+    top: 5% !important;
+    right: 2% !important;
+    font-weight: 600;
+    font-family: var(--font-urbanist);
+}
+
+.dest-content {
+    width: 70%;
+    top: 50% !important;
+    left: -3% !important;
+    background-color: #f2f7fb;
+    z-index: 5;
+    transition: var(--transition-regular)
+}
+
+.dest-card:hover .dest-content {
+    transform: translateY(-15px)
+}
+
+.dest-arrow {
+    top: -5%;
+    right: -3%;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-image: var(--color-prim-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    transform: rotate(-50deg) scale(0);
+    font-size: 1.5rem;
+    transition: var(--transition-slow)
+}
+
+.dest-card:hover .dest-arrow {
+    transform: rotate(-50deg) scale(1);
 }
