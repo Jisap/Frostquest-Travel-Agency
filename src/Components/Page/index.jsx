@@ -207,6 +207,60 @@ const Index = () => {
 
 
       {/* About */}
+      <div className='about py-5'>
+        <div className='container'>
+          <div className='flex flex-row'>
+            <div className='section-title about-title'>
+              <div className='text-left flex flex-col justify-start items-start gap-3'>
+                <span className='flex items-center gap-2 font-kings text-primary uppercase text-lg font-light tracking-wider'>
+                  <img src={plane} className='w-6 h-6' alt="" />
+                  <span>About Our Company</span>
+                  <img src={plane} className='w-6 h-6' alt="" />
+                </span>
+
+                <h2 className='font-urbanist text-3xl! md:text-5xl! font-bold text-dark'>Experience the World</h2>
+
+                <p className='text-base sm:text-lg text-center w-full px-6 text-secondary font-urbanist leading-relaxed'>
+                  Embark on a transformative journey as our company invites you to experience the world,
+                  creating unforgettable memories through exceptional travel adventures.
+                </p>
+              </div>
+            </div>
+
+            <div className='flex flex-row about-cols'>
+              <div className='col-span-12 md:col-span-6'>
+                <div className='about-col-img relative'>
+                  <i className='bi bi-play-fill absolute'></i>
+                  <img
+                    src={about2}
+                    alt=""
+                    className='img-fluid'
+                  />
+                </div>
+              </div>
+
+              <div className='col-span-12 md:col-span-6 about-cols p3'>
+                <h4 className='my-3'>
+                  <img src={checkImg} className='img-fluid pe-2' alt="" />
+                  Perfect Detailing
+                </h4>
+                <h4 className='my-3'>
+                  <img src={checkImg} className='img-fluid pe-2' alt="" />
+                  Completed Certification
+                </h4>
+                <h4 className='my-3'>
+                  <img src={checkImg} className='img-fluid pe-2' alt="" />
+                  Save Your Budget
+                </h4>
+                <h4 className='my-3'>
+                  <img src={checkImg} className='img-fluid pe-2' alt="" />
+                  Free Consultation
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
