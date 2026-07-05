@@ -28,6 +28,11 @@ import DiscoverImg1 from '../../assets/discover-image-1.webp'
 import DiscoverImg2 from '../../assets/discover-image-2.webp'
 import DiscoverImg3 from '../../assets/discover-image-3.webp'
 import DiscoverImg4 from '../../assets/discover-image-4.webp'
+import steps1 from "./../../assets/steps-1.svg";
+import steps2 from "./../../assets/steps-2.svg";
+import steps3 from "./../../assets/steps-3.svg";
+import FeatureImg1 from "./../../assets/feature-image-1.webp";
+import FeatureImg2 from "./../../assets/feature-image-2.webp";
 
 const Index = () => {
   const prevRef = useRef(null);
@@ -44,6 +49,47 @@ const Index = () => {
     { img: DiscoverImg3, place: 'Dubai' },
     { img: DiscoverImg4, place: 'Nepal' },
   ]
+
+  const steps = [
+
+    {
+
+      img: steps1,
+
+      title: 'Choose Destination',
+
+      desc: 'Lobortis luctus neque duis lacinia volutp suspendisse pulviner pen atibus malesu ada placerat...',
+
+      variant: '',
+
+    },
+
+    {
+
+      img: steps2,
+
+      title: 'Make Payment',
+
+      desc: 'Lobortis luctus neque duis lacinia volutp suspendisse pulviner pen atibus malesu ada placerat...',
+
+      variant: 'step-img2',
+
+    },
+
+    {
+
+      img: steps3,
+
+      title: 'Reach Airport on Date',
+
+      desc: 'Lobortis luctus neque duis lacinia volutp suspendisse pulviner pen atibus malesu ada placerat...',
+
+      variant: 'step-img3',
+
+    },
+
+  ]
+
 
   return (
     <>
@@ -365,39 +411,27 @@ const Index = () => {
         {/* Header */}
 
         <div className="section-title">
-
           <div className="flex flex-col items-center justify-center text-center gap-3">
-
             <span className="inline-flex items-center gap-2">
-
               <img src={plane} alt="" className="w-6 h-auto" />
 
               <span className="font-['Kings'] text-[color:var(--primary-color)] text-lg uppercase font-light">
-
                 Travel Destination
-
               </span>
 
               <img src={plane} alt="" className="w-6 h-auto" />
-
             </span>
 
 
             <h2 className="font-['Urbanist'] font-extrabold text-3xl md:text-4xl lg:text-[44px]">
-
               Discover the Touch of Nature
-
             </h2>
 
 
             <p className="text-base max-w-2xl text-[color:var(--pg-color)]">
-
               Our clients rave about our exceptional, seamless experiences that
-
               exceeded their expectations.
-
             </p>
-
           </div>
 
         </div>
@@ -406,59 +440,78 @@ const Index = () => {
         {/* Cards */}
 
         <div className="container mx-auto max-w-7xl px-6 mt-12">
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
-
             {cards.map(({ img, place }) => (
-
               <div key={place} className="discover-card group relative w-full overflow-hidden">
-
                 <img
-
                   src={img}
-
                   alt={place}
-
                   className="discover-card-img absolute inset-0 w-full h-full object-cover"
-
                 />
 
 
                 <div className="discover-card-content absolute w-[90%] h-[90%] flex flex-col items-center justify-center text-center bg-[#212529]/60 backdrop-blur-[5px] text-white p-5">
-
                   <span className="inline-flex items-center gap-2 px-4 py-2 bg-[image:var(--prim-gradient)] rounded-full">
-
                     <MapPin className="w-4 h-4" />
-
                     {place}
-
                   </span>
 
                   <h2 className="mt-4 text-xl md:text-2xl font-medium w-4/5">
-
                     Beautiful tropical beach sea with umbrella chair around
-
                     swimming pool
-
                   </h2>
-
                 </div>
-
               </div>
-
             ))}
-
           </div>
-
         </div>
-
       </section>
 
+      {/* Working Steps */}
+      <section className="working relative overflow-hidden py-12 lg:py-20">
 
+        {/* Decorativas */}
+        <img src={FeatureImg1} alt="" className="featureImg featureImg1 absolute pointer-events-none" />
+        <img src={FeatureImg2} alt="" className="featureImg featureImg2 absolute pointer-events-none" />
 
+        {/* Contenido */}
+        <div className="container mx-auto max-w-7xl px-6 relative z-10">
+          {/* Header */}
+          <div className="section-title">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left gap-3">
+              <span className="inline-flex items-center gap-2">
+                <img src={plane} alt="" className="w-6 h-auto" />
+                <span className="font-['Kings'] text-[color:var(--primary-color)] text-lg uppercase font-light">
+                  Working Steps
+                </span>
+                <img src={plane} alt="" className="w-6 h-auto" />
+              </span>
 
+              <h2 className="font-['Urbanist'] font-extrabold text-3xl md:text-4xl lg:text-[44px] leading-tight">
+                Book Your next Trip <br className="hidden md:block" /> in 3 Steps
+              </h2>
+            </div>
+          </div>
 
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 max-w-5xl mx-auto">
+            {steps.map(({ img, title, desc, variant }) => (
+              <div key={title} className="step-card group cursor-pointer flex flex-col w-full mx-auto sm:mx-0">
+                <div className={`step-img ${variant} flex items-center justify-center`}>
+                  <img src={img} alt="" className="w-9 h-9" />
+                </div>
 
+                <div className="step-content mt-4 flex flex-col gap-2">
+                  <h2 className="text-xl md:text-2xl font-semibold text-[color:var(--text-color)]">
+                    {title}
+                  </h2>
+                  <p className="text-base text-[color:var(--pg-color)]">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }

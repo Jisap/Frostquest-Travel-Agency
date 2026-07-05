@@ -1161,19 +1161,24 @@ ol {
         max-width: 260px;
         border-radius: 200px;
     }
+
     .discover-card-img {
         transform: rotate(10deg) scale(1.2);
     }
+
     .discover-card:hover .discover-card-img {
         transform: rotate(0deg) scale(1.2);
     }
+
     .discover-card-content {
         border-radius: 100%;
     }
+
     .discover-card-content span {
         padding: 6px 10px;
         font-size: 0.85rem;
     }
+
     .discover-card-content h2 {
         font-size: 1.1rem;
     }
@@ -1186,6 +1191,7 @@ ol {
         height: 440px;
         max-width: 320px;
     }
+
     .discover-card-content h2 {
         font-size: 1.3rem;
     }
@@ -1198,6 +1204,7 @@ ol {
         height: 300px;
         max-width: 220px;
     }
+
     .discover-card-content h2 {
         font-size: 1.1rem;
     }
@@ -1210,10 +1217,12 @@ ol {
         height: 550px;
         max-width: none;
     }
+
     .discover-card-content span {
         padding: 10px 15px;
         font-size: 1rem;
     }
+
     .discover-card-content h2 {
         font-size: 2rem;
     }
@@ -1235,28 +1244,29 @@ ol {
     position: absolute;
     z-index: 0;
     pointer-events: none;
-    max-width: 100%;
+    max-width: 40vw;
     height: auto;
+    transition: opacity 0.3s ease;
 }
 
 .featureImg1 {
-    bottom: 0;
+    bottom: 5%;
     right: 0;
-    width: 400px;
+    width: clamp(160px, 22vw, 400px);
     z-index: 1;
 }
 
 .featureImg2 {
-    top: 0;
+    top: 6%;
     left: 0;
-    width: 300px;
+    width: clamp(120px, 16vw, 300px);
     z-index: 1;
 }
 
 /* Step card */
 .step-card {
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
     background-color: var(--white);
     padding: 1.5rem;
     border-radius: 1rem;
@@ -1269,7 +1279,7 @@ ol {
     transform: translateY(-5px);
 }
 
-/* Step image container */
+/* Step image container (con colores por variante) */
 .step-card .step-img {
     width: 70px;
     height: 70px;
@@ -1282,23 +1292,37 @@ ol {
 }
 
 .step-img2 {
-    background-color: #f2e5ff !important;
+    background-color: #f2e5ff;
 }
 
 .step-img3 {
-    background-color: #fff6e6 !important;
+    background-color: #fff6e6;
 }
 
+/* Flip 180° en hover */
 .step-card:hover .step-img {
     transform: scale(-1) rotate(180deg);
 }
 
 .step-content h2 {
+    font-size: clamp(1.25rem, 1.5vw + 1rem, 1.7rem);
     font-weight: 600;
 }
 
-/* MQ */
-@media (max-width: 1399px) {
+.step-content p {
+    font-size: 1rem;
+}
+
+/* ==================================================
+   Media Queries
+   ================================================== */
+
+/* xl / desktop muy ancho */
+@media (min-width: 1400px) {
+    .featureImg {
+        opacity: 1;
+    }
+
     .featureImg1 {
         width: 500px;
     }
@@ -1317,21 +1341,46 @@ ol {
     }
 }
 
-@media (max-width: 768px) {
+/* Desktop grande: hay espacio lateral suficiente */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .featureImg {
+        opacity: 0.6;
+    }
 
-    .featureImg1,
+    .featureImg1 {
+        bottom: 0;
+        width: clamp(300px, 20vw, 400px);
+    }
+
     .featureImg2 {
-        width: 200px;
-        opacity: 0.5;
+        top: 10%;
+        width: clamp(220px, 14vw, 300px);
     }
 }
 
-@media (max-width: 767px) {
+/* Rango problemático: no hay espacio lateral suficiente,
+   las decorativas se solapan con título/cards, así que se ocultan */
+@media (max-width: 1199px) {
+    .featureImg {
+        display: none;
+    }
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+    .step-card {
+        max-width: 340px;
+    }
+}
+
+/* mobile */
+@media (max-width: 639px) {
     .step-card {
         max-width: 100%;
     }
 }
 
+/* mobile chico (ya cubierto por max-width: 1199px, explícito por claridad) */
 @media (max-width: 575px) {
     .featureImg {
         display: none;
