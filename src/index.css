@@ -1393,3 +1393,179 @@ ol {
         display: none;
     }
 }
+
+/* ==================================================
+   Offers Section
+   ================================================== */
+.offers {
+    background-color: #F3F8FC;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagen decorativa izquierda */
+.offer-img {
+    top: 50%;
+    transform: translateY(-50%);
+    left: -10%;
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+/* NUEVA SOLUCIÓN PARA LA DERECHA: Ocupa todo el alto de la sección */
+.offer-img2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* Ahora se posiciona relativo a .offers si la movemos de sitio */
+    width: 500px;
+    max-width: 45vw;
+    /* Evita que pise demasiado el texto en pantallas medianas */
+    height: 100%;
+    /* Fuerza el 100% del alto de la sección */
+    object-fit: cover;
+    /* Recorta la imagen manteniendo la proporción sin deformar */
+    object-position: left center;
+    /* Asegura que se vea la parte izquierda de la imagen si se corta */
+    z-index: 0;
+    opacity: 0.9;
+}
+
+/* Ajustamos el contenedor visual para que solo tenga el texto en flujo */
+.offer-visual {
+    position: relative;
+    z-index: 10;
+}
+
+.offer-title span {
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+}
+
+.offer-title h2 {
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    line-height: 1.1;
+}
+
+.offer-title p {
+    max-width: 34rem;
+    width: 100%;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+}
+
+.offer-btn,
+.offer-btn button {
+    height: 70px;
+}
+
+/* Número "40% off" */
+.offer-text {
+    z-index: 2;
+}
+
+.offer-text h1 {
+    font-size: clamp(4.5rem, 9vw, 12rem);
+    font-family: var(--Poppins-font);
+    font-weight: 600;
+    color: var(--primary-color);
+    line-height: 0.9;
+    white-space: nowrap;
+}
+
+.offer-text .offer-span {
+    font-size: clamp(2.25rem, 4.5vw, 6rem);
+    line-height: 1;
+    color: #000;
+}
+
+.offer-text .offer-span span {
+    font-size: clamp(1.3rem, 2.8vw, 3.5rem);
+    line-height: 1;
+    font-family: var(--Poppins-font);
+    font-weight: 600;
+}
+
+/* ==================================================
+   Optimización para Pantallas Grandes (Escritorio)
+   ================================================== */
+
+/* Pantallas grandes pero ajustadas (Evita que el texto pise la imagen izquierda) */
+@media (max-width: 1400px) {
+    .offer-img {
+        left: -20%;
+        /* Empujamos la imagen izquierda más hacia afuera */
+        opacity: 0.5;
+        /* Le damos transparencia para que el texto resalte */
+    }
+
+    .offer-img2 {
+        width: 450px;
+        /* Reducimos un poco el ancho de la derecha */
+    }
+}
+
+/* EL PUNTO CRÍTICO: De 1025px a 1200px (Donde antes se rompía) */
+@media (max-width: 1200px) {
+    .offer-img {
+        display: none;
+        /* Ocultamos la izquierda AQUÍ en lugar de esperar a 991px. Libera mucho espacio. */
+    }
+
+    .offer-img2 {
+        width: 400px;
+        opacity: 0.4;
+        /* Volvemos la imagen derecha semi-transparente para que el texto pueda pasar por encima sin verse mal */
+    }
+}
+
+/* 1024px o menos: Tu layout centrado que ya te gusta */
+@media (max-width: 1024px) {
+    .offers-wrapper {
+        gap: 2rem;
+        /* Compactamos el espacio intermedio */
+    }
+}
+
+/* 991px o menos: Comportamiento idéntico al de tu captura "Captura de pantalla 2026-07-05 221302.jpg" */
+@media (max-width: 991px) {
+    .offer-img2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.25 !important;
+        z-index: 0;
+    }
+
+    .offer-title {
+        text-align: center;
+        align-items: center;
+    }
+
+    .offer-title p {
+        max-width: 100%;
+    }
+}
+
+/* Pantallas móviles (sm) */
+@media (max-width: 767px) {
+    .offer-img2 {
+        opacity: 0.18 !important;
+        /* Más sutil en móvil */
+    }
+
+    .offer-title h2 {
+        font-size: 2.5rem;
+    }
+
+    .offer-text h1 {
+        font-size: 6rem;
+    }
+}

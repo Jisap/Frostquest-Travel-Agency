@@ -33,6 +33,8 @@ import steps2 from "./../../assets/steps-2.svg";
 import steps3 from "./../../assets/steps-3.svg";
 import FeatureImg1 from "./../../assets/feature-image-1.webp";
 import FeatureImg2 from "./../../assets/feature-image-2.webp";
+import offerBG1 from "../../assets/offer-bg-1.webp"
+import offerBG2 from "../../assets/offer-bg-2.webp"
 
 const Index = () => {
   const prevRef = useRef(null);
@@ -514,6 +516,66 @@ const Index = () => {
             <div className="step-gap-filler hidden sm:flex lg:hidden items-center justify-center">
               <img src={FeatureImg2} alt="" className="pointer-events-none select-none" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Offers */}
+      <section className="offers relative overflow-hidden">
+
+        {/* Imagen decorativa izquierda (Fondo absoluto) */}
+        <img src={offerBG1} alt="" className="offer-img absolute pointer-events-none" />
+
+        {/* Imagen decorativa derecha (Fondo absoluto) */}
+        <img src={offerBG2} alt="" className="offer-img2 absolute pointer-events-none" />
+
+        <div className="container mx-auto max-w-7xl px-6 relative z-10">
+
+          {/* CAMBIO CLAVE: Usamos justify-center en lugar de justify-between y añadimos un max-w para que no se dispersen */}
+          <div className="offers-wrapper flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 xl:gap-6 py-14 max-w-5xl mx-auto">
+
+            {/* Columna de texto (Reducimos ligeramente el ancho máximo para compactarlo) */}
+            <div className="section-title offer-title flex flex-col gap-6 w-full lg:w-7/12 shrink-0 max-w-xl">
+              <div className="flex flex-col items-start gap-3">
+                <span className="inline-flex items-center gap-2">
+                  <img src={plane} alt="" className="w-6 h-auto" />
+                  <span className="font-['Kings'] text-[color:var(--primary-color)] text-lg uppercase font-light">
+                    35% offer
+                  </span>
+                  <img src={plane} alt="" className="w-6 h-auto" />
+                </span>
+
+                <h2 className="font-['Urbanist'] font-extrabold text-4xl md:text-5xl lg:text-[64px] leading-tight text-[color:var(--text-color)]">
+                  Get Special Offer
+                </h2>
+
+                <p className="text-base md:text-lg text-[color:var(--pg-color)]">
+                  Embark on an unforgettable journey with our exclusive tour
+                  special offer seize the moment and create lasting memories.
+                </p>
+              </div>
+
+              <div className="btn-box offer-btn">
+                <button className="custom-btn1">
+                  Learn More
+                  <img src={btnArrow} alt="" className="img-fluid ms-2 w-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Columna visual (Ahora se alinea al inicio o centro en pantallas grandes para estar pegada al texto) */}
+            <div className="offer-visual w-full lg:w-5/12 flex items-center justify-center lg:justify-start shrink-0">
+              <div className="offer-text relative flex-shrink-0">
+                <h1 className="flex items-center font-semibold text-[color:var(--primary-color)] font-['Poppins']">
+                  40
+                  <span className="offer-span flex flex-col text-black ml-2">
+                    %
+                    <span className="font-['Poppins'] font-semibold">off</span>
+                  </span>
+                </h1>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
