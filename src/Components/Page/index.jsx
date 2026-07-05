@@ -23,6 +23,11 @@ import abElement1 from "../../assets/about-element-1.webp";
 import abElement2 from "../../assets/about-element-2.webp";
 import abElement3 from "../../assets/about-element-3.webp";
 import { Play } from 'lucide-react'
+import { MapPin } from 'lucide-react'
+import DiscoverImg1 from '../../assets/discover-image-1.webp'
+import DiscoverImg2 from '../../assets/discover-image-2.webp'
+import DiscoverImg3 from '../../assets/discover-image-3.webp'
+import DiscoverImg4 from '../../assets/discover-image-4.webp'
 
 const Index = () => {
   const prevRef = useRef(null);
@@ -32,6 +37,12 @@ const Index = () => {
     'Completed Certification',
     'Save Your Budget',
     'Free Consultations',
+  ];
+  const cards = [
+    { img: DiscoverImg1, place: 'Maldives' },
+    { img: DiscoverImg2, place: 'Vietnam' },
+    { img: DiscoverImg3, place: 'Dubai' },
+    { img: DiscoverImg4, place: 'Nepal' },
   ]
 
   return (
@@ -347,7 +358,101 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Discovery */}
+      <section className="discover py-12 md:py-16 lg:py-20">
 
+
+        {/* Header */}
+
+        <div className="section-title">
+
+          <div className="flex flex-col items-center justify-center text-center gap-3">
+
+            <span className="inline-flex items-center gap-2">
+
+              <img src={plane} alt="" className="w-6 h-auto" />
+
+              <span className="font-['Kings'] text-[color:var(--primary-color)] text-lg uppercase font-light">
+
+                Travel Destination
+
+              </span>
+
+              <img src={plane} alt="" className="w-6 h-auto" />
+
+            </span>
+
+
+            <h2 className="font-['Urbanist'] font-extrabold text-3xl md:text-4xl lg:text-[44px]">
+
+              Discover the Touch of Nature
+
+            </h2>
+
+
+            <p className="text-base max-w-2xl text-[color:var(--pg-color)]">
+
+              Our clients rave about our exceptional, seamless experiences that
+
+              exceeded their expectations.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        {/* Cards */}
+
+        <div className="container mx-auto max-w-7xl px-6 mt-12">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 justify-items-center">
+
+            {cards.map(({ img, place }) => (
+
+              <div key={place} className="discover-card group relative w-full overflow-hidden">
+
+                <img
+
+                  src={img}
+
+                  alt={place}
+
+                  className="discover-card-img absolute inset-0 w-full h-full object-cover"
+
+                />
+
+
+                <div className="discover-card-content absolute w-[90%] h-[90%] flex flex-col items-center justify-center text-center bg-[#212529]/60 backdrop-blur-[5px] text-white p-5">
+
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-[image:var(--prim-gradient)] rounded-full">
+
+                    <MapPin className="w-4 h-4" />
+
+                    {place}
+
+                  </span>
+
+                  <h2 className="mt-4 text-xl md:text-2xl font-medium w-4/5">
+
+                    Beautiful tropical beach sea with umbrella chair around
+
+                    swimming pool
+
+                  </h2>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
 
 
 
