@@ -509,6 +509,11 @@ const Index = () => {
                 </div>
               </div>
             ))}
+
+            {/* Relleno del hueco: solo visible entre sm y lg (2 columnas) */}
+            <div className="step-gap-filler hidden sm:flex lg:hidden items-center justify-center">
+              <img src={FeatureImg2} alt="" className="pointer-events-none select-none" />
+            </div>
           </div>
         </div>
       </section>
