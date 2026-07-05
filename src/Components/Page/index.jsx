@@ -12,10 +12,27 @@ import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import '@splidejs/react-splide/css';
 import { ArrowUpRight } from 'lucide-react';
+import about1 from "../../assets/about-image-1.webp";
+import about2 from "../../assets/about-image-2.webp";
+import tst1 from "../../assets/tst-1.webp";
+import tst2 from "../../assets/tst-2.webp";
+import tst3 from "../../assets/tst-3.webp";
+import tst4 from "../../assets/tst-4.webp";
+import checkImg from "../../assets/about-check.svg";
+import abElement1 from "../../assets/about-element-1.webp";
+import abElement2 from "../../assets/about-element-2.webp";
+import abElement3 from "../../assets/about-element-3.webp";
+import { Play } from 'lucide-react'
 
 const Index = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const features = [
+    'Perfect Detailing',
+    'Completed Certification',
+    'Save Your Budget',
+    'Free Consultations',
+  ]
 
   return (
     <>
@@ -205,62 +222,138 @@ const Index = () => {
         </p>
       </div>
 
+      {/* About  */}
+      <section className="about py-14 lg:py-20 relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* ====================================================
 
-      {/* About */}
-      <div className='about py-5'>
-        <div className='container'>
-          <div className='flex flex-row'>
-            <div className='section-title about-title'>
-              <div className='text-left flex flex-col justify-start items-start gap-3'>
-                <span className='flex items-center gap-2 font-kings text-primary uppercase text-lg font-light tracking-wider'>
-                  <img src={plane} className='w-6 h-6' alt="" />
-                  <span>About Our Company</span>
-                  <img src={plane} className='w-6 h-6' alt="" />
+              COLUMNA IZQUIERDA
+
+             ==================================================== */}
+            <div className="flex flex-col gap-10">
+              {/* 1) Header */}
+              <div className="about-title">
+                <span
+                  className="
+                  font-['Kings'] text-[color:var(--primary-color)]
+                  text-lg uppercase font-light
+                  inline-flex items-center gap-2
+                "
+                >
+                  <img src={plane} alt="" className="w-6 h-auto" />
+                  About our Company
+                  <img src={plane} alt="" className="w-6 h-auto" />
                 </span>
 
-                <h2 className='font-urbanist text-3xl! md:text-5xl! font-bold text-dark'>Experience the World</h2>
 
-                <p className='text-base sm:text-lg text-center w-full px-6 text-secondary font-urbanist leading-relaxed'>
-                  Embark on a transformative journey as our company invites you to experience the world,
-                  creating unforgettable memories through exceptional travel adventures.
+                <h2
+                  className="
+                  mt-3 font-['Urbanist'] font-extrabold
+                  text-3xl md:text-4xl lg:text-[44px] leading-tight
+                "
+                >
+                  Experience the World with Our Company
+                </h2>
+
+
+                <p className="mt-5 text-base max-w-lg text-[color:var(--pg-color)]">
+                  Embark on a transformative journey as company invites you to
+                  experience the world, creating unforgettable memories through
+                  exceptional travel adventures.
                 </p>
               </div>
-            </div>
 
-            <div className='flex flex-row about-cols'>
-              <div className='col-span-12 md:col-span-6'>
-                <div className='about-col-img relative'>
-                  <i className='bi bi-play-fill absolute'></i>
+
+              {/* 2) Imagen-play + features */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div className="about-col-img relative aspect-[5/4] w-full overflow-hidden rounded-[40px]">
                   <img
                     src={about2}
                     alt=""
-                    className='img-fluid'
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
+
+                  <button
+                    type="button"
+                    aria-label="Play video"
+                    className="
+                    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                    z-20 w-[60px] h-[60px] rounded-full
+                    flex items-center justify-center
+                    bg-[image:var(--prim-gradient)]
+                    shadow-lg
+                    hover:scale-110 transition-transform duration-300
+                  "
+                  >
+                    <Play className="w-7 h-7 fill-white text-white ml-1" />
+                  </button>
                 </div>
+
+                <ul className="about-cols flex flex-col gap-5">
+                  {features.map((title) => (
+                    <li
+                      key={title}
+                      className="flex items-center gap-3 text-lg font-medium"
+                    >
+                      <img src={checkImg} alt="" className="w-5 h-5 shrink-0" />
+                      <span>{title}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className='col-span-12 md:col-span-6 about-cols p3'>
-                <h4 className='my-3'>
-                  <img src={checkImg} className='img-fluid pe-2' alt="" />
-                  Perfect Detailing
-                </h4>
-                <h4 className='my-3'>
-                  <img src={checkImg} className='img-fluid pe-2' alt="" />
-                  Completed Certification
-                </h4>
-                <h4 className='my-3'>
-                  <img src={checkImg} className='img-fluid pe-2' alt="" />
-                  Save Your Budget
-                </h4>
-                <h4 className='my-3'>
-                  <img src={checkImg} className='img-fluid pe-2' alt="" />
-                  Free Consultation
-                </h4>
+              {/* 3) CTA + avatares */}
+              <div className="about-bottom flex flex-wrap items-center gap-6">
+                <div className="btn-box">
+                  <button className="custom-btn1">
+                    Learn More
+                    <img src={btnArrow} alt="" className="w-5" />
+                  </button>
+                </div>
+
+
+                <div className="about-col-box flex items-center gap-4">
+                  <div className="about-col-box-img">
+                    {[tst1, tst2, tst3, tst4].map((src, i) => (
+                      <img key={i} src={src} alt="" />
+                    ))}
+                  </div>
+
+                  <p className="m-0 text-lg font-semibold">5.2+ Satisfied Clients</p>
+                </div>
               </div>
+            </div>
+
+            {/* ====================================================
+
+              COLUMNA DERECHA — imagen con marco beige
+
+             ==================================================== */}
+            <div className="about-img relative">
+              {/* elementos flotantes (los posiciona el CSS) */}
+              <img src={abElement1} alt="" className="abElement-1" />
+              <img src={abElement2} alt="" className="abElement-2" />
+              <img src={abElement3} alt="" className="abElement-3" />
+
+              {/* Imagen principal */}
+              <img
+                src={about1}
+                alt=""
+                className="relative z-10 w-full block"
+              />
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+
+
+
+
+
+
+
     </>
   )
 }
