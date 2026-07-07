@@ -40,10 +40,12 @@ import tstimg1 from '../../assets/tst-1.webp'
 import tstimg2 from '../../assets/tst-2.webp'
 import tstimg3 from '../../assets/tst-3.webp'
 import tstimg4 from '../../assets/tst-4.webp'
-
-
 import quote from '../../assets/quote-left.png'
 import testBG from '../../assets/test-bg.webp'
+import blog1 from '../../assets/blog-1.webp'
+import blog2 from '../../assets/blog-2.webp'
+import blog3 from '../../assets/blog-3.webp'
+
 
 const Index = () => {
   const prevRef = useRef(null);
@@ -124,6 +126,12 @@ const Index = () => {
       role: "Adventure Seeker",
       text: "From start to finish, the experience was flawless. The team went above and beyond to ensure every detail was perfect. They truly understand what travelers need and deliver exceptional results."
     }
+  ];
+
+  const blogPosts = [
+    { id: 1, img: blog1, title: "Beach Days, Long Hikes, And" },
+    { id: 2, img: blog3, title: "Island Hopping And Weather Tips" },
+    { id: 3, img: blog2, title: "Assertively iterate resource maximizing" }
   ];
 
 
@@ -732,7 +740,6 @@ const Index = () => {
               FrostQuest Is A World Leading Online Tour Booking Platform
             </h2>
 
-            {/* Botón - Usando tus clases CSS existentes */}
             <div className="btn-box mt-8">
               <button className="btn custom-btn1">
                 Learn More
@@ -743,6 +750,86 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Blog */}
+
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Header: Título + Descripción */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <div className="md:w-1/2">
+              <span className="text-primary font-bold uppercase tracking-wider text-sm">BLOG & NEWS</span>
+              <h2 className="text-4xl md:text-5xl font-bold mt-2 leading-tight text-gray-900">
+                Get More Update <br /> News & Blog
+              </h2>
+            </div>
+            <p className="md:w-1/2 text-gray-600 text-lg leading-relaxed">
+              Stay informed and inspired by subscribing to our newsletter for the latest news and insightful blog posts – your gateway to a world of updates.
+            </p>
+          </div>
+
+          {/* Grid de Tarjetas */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {blogPosts.map((post) => (
+              <div key={post.id} className="blog-card group relative overflow-hidden cursor-pointer aspect-[4/5] rounded-2xl">
+
+                {/* Imagen con efecto zoom */}
+                <img
+                  src={post.img}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {/* Contenedor Overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+
+                  {/* Caja de detalles con animación */}
+                  <div className="relative bg-white rounded-[15px] p-5 overflow-hidden transition-transform duration-300 translate-y-5 group-hover:translate-y-0 z-10 shadow-xl">
+
+                    {/* Fondo gradiente púrpura que desliza */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#4300e7] to-[#7d00fc] -top-full left-0 w-full h-full transition-all duration-500 group-hover:top-0 rounded-[15px] z-0"></div>
+
+                    {/* Contenido de la caja */}
+                    <div className="relative z-10">
+                      <h5 className="text-xl font-bold text-gray-800 group-hover:text-white transition-colors duration-300 relative w-fit">
+                        {post.title}
+                        {/* Línea blanca que crece debajo del título */}
+                        <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                      </h5>
+                      <p className="text-gray-600 text-sm mt-2 group-hover:text-white/90 transition-colors duration-300">
+                        Emma Mark • April 25, 2025
+                      </p>
+                    </div>
+
+                  </div>
+
+                  {/* Badge "Read More" - ahora posicionado encima de la caja */}
+                  <div className="absolute top-6 left-6 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-2 z-20">
+                    <span className="px-4 py-2 bg-gradient-to-br from-orange-500 to-red-600 text-white font-bold rounded-lg text-sm shadow-lg block">
+                      Read More
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Footer con enlace */}
+          <div className="text-center mt-12">
+            <p className="text-gray-600 text-lg">
+              Want to see our top destinations?{" "}
+              <a href="#" className="text-primary font-semibold hover:underline transition-colors">
+                Click here to View More
+              </a>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
 
     </>
   )
