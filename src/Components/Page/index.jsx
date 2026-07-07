@@ -740,7 +740,7 @@ const Index = () => {
         {/* Contenido centrado */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold leading-tight w-full md:w-[80%] mx-auto mb-6 sm:mb-8">
+          <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold leading-tight w-full md:w-[80%] mx-auto mb-6 sm:mb-8">
             FrostQuest Is A World Leading Online Tour Booking Platform
           </h2>
 
