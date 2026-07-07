@@ -35,6 +35,15 @@ import FeatureImg1 from "./../../assets/feature-image-1.webp";
 import FeatureImg2 from "./../../assets/feature-image-2.webp";
 import offerBG1 from "../../assets/offer-bg-1.webp"
 import offerBG2 from "../../assets/offer-bg-2.webp"
+import tstimage from '../../assets/tst-image-1.webp' // Imagen que no debe cambiar, situada a la izquierda de los testimonios
+import tstimg1 from '../../assets/tst-1.webp'
+import tstimg2 from '../../assets/tst-2.webp'
+import tstimg3 from '../../assets/tst-3.webp'
+import tstimg4 from '../../assets/tst-4.webp'
+
+
+import quote from '../../assets/quote-left.png'
+import testBG from '../../assets/test-bg.webp'
 
 const Index = () => {
   const prevRef = useRef(null);
@@ -91,6 +100,31 @@ const Index = () => {
     },
 
   ]
+
+  // Datos de los testimonios
+  const testimonials = [
+    {
+      id: 1,
+      image: tstimg2,
+      name: "TASHA STEWART",
+      role: "Web Developer at ThemeXriver",
+      text: "Booking with this travel agency was a game changer their meticulous planning and personalized approach made our trip not just a vacation but a collection of unforgettable moments. From seamless logistics to hidden gems, they turned our travel dreams into a reality, earning our trust and loyalty."
+    },
+    {
+      id: 2,
+      image: tstimg3,
+      name: "MICHAEL JOHNSON",
+      role: "Travel Enthusiast",
+      text: "The attention to detail and personalized service exceeded all expectations. Every aspect of our journey was perfectly orchestrated, creating memories that will last a lifetime. Highly recommend their services!"
+    },
+    {
+      id: 3,
+      image: tstimg4,
+      name: "SARAH WILLIAMS",
+      role: "Adventure Seeker",
+      text: "From start to finish, the experience was flawless. The team went above and beyond to ensure every detail was perfect. They truly understand what travelers need and deliver exceptional results."
+    }
+  ];
 
 
   return (
@@ -540,7 +574,7 @@ const Index = () => {
                 <span className="inline-flex items-center gap-2">
                   <img src={plane} alt="" className="w-6 h-auto" />
                   <span className="font-['Kings'] text-[color:var(--primary-color)] text-lg uppercase font-light">
-                    35% offer
+                    40% offer
                   </span>
                   <img src={plane} alt="" className="w-6 h-auto" />
                 </span>
@@ -579,6 +613,116 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <section className="testimonial py-16 position-relative overflow-hidden">
+        {/* Imágenes de fondo decorativas */}
+        <img
+          src={testBG}
+          className="absolute top-0 right-0 w-full h-full object-cover opacity-30 test-bg-img"
+          alt=""
+        />
+        <img
+          src={testBG}
+          className="absolute top-0 left-0 w-full h-full object-cover test-bg-img2"
+          style={{ transform: 'rotate(180deg)' }}
+          alt=""
+        />
+
+        {/* Título y descripción */}
+        <div className="section-title test-title max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+          <div className="flex flex-col items-center justify-center gap-3 text-center">
+            <span className="flex items-center gap-2">
+              <img src={plane} alt="" className="w-5 h-5" />
+              <span className="text-purple-600 font-medium tracking-wider text-sm uppercase">Testimonials</span>
+              <img src={plane} alt="" className="w-5 h-5" />
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              What's Our Clients Saying!
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+              Our clients rave about our exceptional the seamless experiences
+              that exceeded their expectations.
+            </p>
+          </div>
+        </div>
+
+        {/* Contenido principal */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+            {/* Columna Izquierda - Imagen ESTÁTICA */}
+            <div className="lg:col-span-1">
+              <div className="test-img relative flex items-center justify-center">
+                <img
+                  src={tstimage}
+                  className="w-full h-auto relative z-[1]"
+                  alt="Testimonial"
+                />
+              </div>
+            </div>
+
+            {/* Columna Derecha - Swiper con contenido DINÁMICO */}
+            <div className="lg:col-span-1">
+              <Swiper
+                modules={[Autoplay]}
+                slidesPerView={1}
+                spaceBetween={30}
+                loop={true}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                speed={1000}
+                className="test-Swiper"
+              >
+                {testimonials.map((testimonial) => (
+                  <SwiperSlide key={testimonial.id}>
+                    <div className="test-content">
+                      <img
+                        src={quote}
+                        className="w-16 h-16 mb-4 test-content-img"
+                        alt="Quote"
+                      />
+                      <p className="text-xl leading-8 text-gray-700 mb-6 test-pere">
+                        "{testimonial.text}"
+                      </p>
+
+                      {/* Estrellas */}
+                      <div className="test-stars flex items-center mb-4">
+                        <i className="bi bi-star-fill text-[#F2994A] text-2xl ml-2"></i>
+                        <i className="bi bi-star-fill text-[#F2994A] text-2xl ml-2"></i>
+                        <i className="bi bi-star-fill text-[#F2994A] text-2xl ml-2"></i>
+                        <i className="bi bi-star-fill text-[#F2994A] text-2xl ml-2"></i>
+                        <i className="bi bi-star-fill text-[#F2994A] text-2xl ml-2"></i>
+                      </div>
+
+                      {/* Usuario */}
+                      <div className="test-user flex items-center gap-3 mt-6">
+                        <img
+                          src={testimonial.image}
+                          className="w-20 h-20 rounded-full border-2 border-purple-600 p-1 object-cover"
+                          alt={testimonial.name}
+                        />
+                        <div className="test-user-info">
+                          <h3 className="text-2xl font-bold text-gray-900 leading-6">
+                            {testimonial.name}
+                          </h3>
+                          <p className="text-gray-600 font-medium m-0">
+                            {testimonial.role}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </>
   )
 }
