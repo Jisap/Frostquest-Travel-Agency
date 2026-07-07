@@ -732,23 +732,26 @@ const Index = () => {
       </section>
 
       {/* Banner */}
-      <section className="blog-banner py-20 bg-gradient-to-br from-purple-50 to-blue-50 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center text-center">
+      <section className="blog-banner relative flex justify-center items-center py-5 overflow-hidden">
 
-            {/* Título */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mb-8">
-              FrostQuest Is A World Leading Online Tour Booking Platform
-            </h2>
+        {/* Overlay oscuro para mejorar el contraste del texto blanco */}
+        <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-            <div className="btn-box mt-8">
-              <button className="btn custom-btn1">
-                Learn More
-                <img src={btnArrow} className='img-fluid ms-2' alt="" />
-              </button>
-            </div>
+        {/* Contenido centrado */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
 
+          <h2 className="text-white text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-tight w-full md:w-[80%] mx-auto mb-8">
+            FrostQuest Is A World Leading Online Tour Booking Platform
+          </h2>
+
+          {/* Botón centrado */}
+          <div className="btn-box mt-5 flex justify-center">
+            <button className="btn custom-btn1">
+              Learn More
+              <img src={btnArrow} className='img-fluid ms-2' alt="" />
+            </button>
           </div>
+
         </div>
       </section>
 

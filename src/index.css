@@ -1736,6 +1736,26 @@ ol {
     }
 }
 
+/* blog banner */
+.blog-banner {
+    background-image: url(assets/banner.webp);
+    background-size: cover;
+    object-fit: cover;
+    background-position: center;
+    height: 60vh;
+}
+
+.blog-banner h2 {
+    font-size: 3.5rem;
+    width: 80%;
+}
+
+@media (max-width: 575px) {
+    .banner-title h2 {
+        width: 100%;
+    }
+}
+
 /* Blog Card Effects */
 .blog-card {
     position: relative;
