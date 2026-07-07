@@ -722,6 +722,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Banner */}
+      <section className="blog-banner py-20 bg-gradient-to-br from-purple-50 to-blue-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-center text-center">
+
+            {/* Título */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mb-8">
+              FrostQuest Is A World Leading Online Tour Booking Platform
+            </h2>
+
+            {/* Botón - Usando tus clases CSS existentes */}
+            <div className="btn-box mt-8">
+              <button className="btn custom-btn1">
+                Learn More
+                <img src={btnArrow} className='img-fluid ms-2' alt="" />
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
     </>
   )
