@@ -45,6 +45,7 @@ import testBG from '../../assets/test-bg.webp'
 import blog1 from '../../assets/blog-1.webp'
 import blog2 from '../../assets/blog-2.webp'
 import blog3 from '../../assets/blog-3.webp'
+import bannerImg from '../../assets/banner.webp'
 
 
 const Index = () => {
@@ -752,7 +753,6 @@ const Index = () => {
       </section>
 
       {/* Blog */}
-
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
