@@ -738,14 +738,14 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/60 z-0"></div>
 
         {/* Contenido centrado */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
 
-          <h2 className="text-white text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-tight w-full md:w-[80%] mx-auto mb-8">
+          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold leading-tight w-full md:w-[80%] mx-auto mb-6 sm:mb-8">
             FrostQuest Is A World Leading Online Tour Booking Platform
           </h2>
 
           {/* Botón centrado */}
-          <div className="btn-box mt-5 flex justify-center">
+          <div className="btn-box mt-4 sm:mt-5 flex justify-center">
             <button className="btn custom-btn1">
               Learn More
               <img src={btnArrow} className='img-fluid ms-2' alt="" />
@@ -828,7 +828,6 @@ const Index = () => {
               </a>
             </p>
           </div>
-
         </div>
       </section>
 
