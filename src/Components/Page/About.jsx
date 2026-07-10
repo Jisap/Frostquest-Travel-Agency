@@ -40,7 +40,7 @@ import galleryimage3 from '../../assets/gallery-image3.webp';
 import galleryimage4 from '../../assets/gallery-image4.webp';
 import galleryimage5 from '../../assets/gallery-image5.webp';
 import SectionBanner from "../SectionBanner";
-import { Check, Link2, Play } from "lucide-react";
+import { Check, CheckCircle, CheckCircle2Icon, Link2, Play } from "lucide-react";
 
 function About() {
   // Datos de destinos
@@ -447,7 +447,7 @@ function About() {
                 <ul className="list-none p-0 text-left mb-6 flex-grow">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="text-lg md:text-xl font-bold mb-3 flex items-center gap-2">
-                      <i className="fa-regular fa-circle-check text-primary text-xl"></i>
+                      <CheckCircle2Icon className="text-primary text-xl" />
                       {feature}
                     </li>
                   ))}
