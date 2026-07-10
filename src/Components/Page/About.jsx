@@ -274,7 +274,7 @@ function About() {
                   concrete and steel. We work with people
                 </p>
 
-                <div className="place-text flex gap-3 items-center shadow-lg p-4 mb-6 rounded-2xl mt-4 bg-white w-fit">
+                <div className="place-text flex gap-3 items-center shadow-lg p-4 mb-6 rounded-2xl mt-4 bg-white w-full">
                   <img
                     src={placeelement}
                     alt="place"
@@ -348,7 +348,7 @@ function About() {
       </section>
 
       {/* ============ REVIEWS ============ */}
-      <section className="py-16 md:py-20 overflow-hidden">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Columna izquierda */}
@@ -373,7 +373,7 @@ function About() {
               <Swiper
                 effect={'cards'}
                 grabCursor={true}
-                loop={true}
+                speed={600}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 modules={[EffectCards, Autoplay]}
                 className="ab-tst-swiper"
@@ -408,6 +408,7 @@ function About() {
                   </SwiperSlide>
                 ))}
               </Swiper>
+
             </div>
           </div>
         </div>

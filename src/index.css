@@ -2210,3 +2210,17 @@ ol {
     right: auto;
     left: 0;
 }
+
+/* ===== TESTIMONIALS SWIPER (Cards Effect) ===== */
+.ab-tst-swiper {
+    width: 100%;
+    padding-bottom: 20px !important;
+}
+
+/* Eliminar el fondo blanco por defecto de cada slide que se asoma
+   por las esquinas redondeadas de la tarjeta interior */
+.ab-tst-swiper .swiper-slide {
+    background: transparent !important;
+    border-radius: 30px;
+    overflow: hidden;
+}
