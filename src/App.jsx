@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import './App.css'
 import Nav from './Components/Nav/Nav'
 import Index from './Components/Page'
+import About from './Components/Page/About'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </>
   )
