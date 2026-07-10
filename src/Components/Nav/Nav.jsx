@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -47,15 +48,15 @@ const Nav = () => {
       <nav className={`custom-nav ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="nav-inner">
 
-          <a href="#" className="logo">Frost<span>Quest</span></a>
+          <Link to="/" className="logo">Frost<span>Quest</span></Link>
 
           <div className='flex gap-10'>
             <ul className="nav-links-desktop">
-              <li className="nav-item"><a href="#">Home</a></li>
-              <li className="nav-item"><a href="#">About</a></li>
-              <li className="nav-item"><a href="#">Tour</a></li>
-              <li className="nav-item"><a href="#">Blog</a></li>
-              <li className="nav-item"><a href="#">Contact</a></li>
+              <li className="nav-item"><Link to="/">Home</Link></li>
+              <li className="nav-item"><Link to="/about">About</Link></li>
+              <li className="nav-item"><Link to="/tour">Tour</Link></li>
+              <li className="nav-item"><Link to="/blog">Blog</Link></li>
+              <li className="nav-item"><Link to="/contact">Contact</Link></li>
             </ul>
 
             <div className="nav-actions">
@@ -78,11 +79,11 @@ const Nav = () => {
 
         {menuOpen && (
           <ul className="nav-links-mobile">
-            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Home</a></li>
-            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>About</a></li>
-            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Tour</a></li>
-            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Blog</a></li>
-            <li className="nav-item"><a href="#" onClick={() => setMenuOpen(false)}>Contact</a></li>
+            <li className="nav-item"><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li className="nav-item"><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
+            <li className="nav-item"><Link to="/tour" onClick={() => setMenuOpen(false)}>Tour</Link></li>
+            <li className="nav-item"><Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link></li>
+            <li className="nav-item"><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
           </ul>
         )}
       </nav>

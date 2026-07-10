@@ -832,7 +832,6 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-
       <footer className="bg-white flex flex-col lg:flex-row">
 
         {/* Columna izquierda - Todo el contenido del footer */}
