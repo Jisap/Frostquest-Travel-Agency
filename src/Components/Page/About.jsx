@@ -40,7 +40,7 @@ import galleryimage3 from '../../assets/gallery-image3.webp';
 import galleryimage4 from '../../assets/gallery-image4.webp';
 import galleryimage5 from '../../assets/gallery-image5.webp';
 import SectionBanner from "../SectionBanner";
-import { Link2, Play } from "lucide-react";
+import { Check, Link2, Play } from "lucide-react";
 
 function About() {
   // Datos de destinos
@@ -129,7 +129,11 @@ function About() {
             {/* Columna izquierda */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <img src={star} alt="star" className="w-6 h-6" />
+                <img
+                  src={star}
+                  alt="star"
+                  className="w-6 h-6"
+                />
                 <h3 className="m-0 text-2xl font-bold">Get To Know Us</h3>
               </div>
 
@@ -187,22 +191,38 @@ function About() {
             {/* Columna derecha - Grid de imágenes */}
             <div className="grid grid-cols-2 gap-3">
               <div className="travel-experience-image travel-experience-image-mb relative rounded-lg overflow-hidden">
-                <img src={travelexperienceimage1} alt="America" className="w-full h-full object-cover" />
+                <img
+                  src={travelexperienceimage1}
+                  alt="America"
+                  className="w-full h-full object-cover"
+                />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">America</span>
               </div>
 
               <div className="travel-experience-image relative rounded-lg overflow-hidden">
-                <img src={travelexperienceimage3} alt="Africa" className="w-full h-full object-cover" />
+                <img
+                  src={travelexperienceimage3}
+                  alt="Africa"
+                  className="w-full h-full object-cover"
+                />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">Africa</span>
               </div>
 
               <div className="travel-experience-image travel-experience-image-mb relative rounded-lg overflow-hidden">
-                <img src={travelexperienceimage2} alt="Asia" className="w-full h-full object-cover" />
+                <img
+                  src={travelexperienceimage2}
+                  alt="Asia"
+                  className="w-full h-full object-cover"
+                />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">Asia</span>
               </div>
 
               <div className="travel-experience-image relative rounded-lg overflow-hidden">
-                <img src={travelexperienceimage3} alt="Europe" className="w-full h-full object-cover" />
+                <img
+                  src={travelexperienceimage3}
+                  alt="Europe"
+                  className="w-full h-full object-cover"
+                />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">Europe</span>
               </div>
             </div>
@@ -239,35 +259,49 @@ function About() {
             {/* Columna derecha */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div className="travel-places-image relative">
-                <img src={travelplace} alt="travel-place" className="w-full h-auto rounded-[200px] md:rounded-[200px] object-cover" />
+                <img
+                  src={travelplace}
+                  alt="travel-place"
+                  className="w-full h-auto rounded-[200px] md:rounded-[200px] object-cover"
+                />
               </div>
 
               <div className="travel-places-info">
-                <h4 className="font-bold text-xl md:text-2xl mb-4">Waiting for adventures? Don't miss them</h4>
+                <h4 className="font-medium text-xl md:text-2xl mb-4">Waiting for adventures? Don't miss them</h4>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   We don't just work with concrete and steel.
                   We are Approachable, with even our highest
                   concrete and steel. We work with people
                 </p>
 
-                <div className="place-text flex gap-3 items-center shadow-lg p-4 rounded-2xl mt-4 bg-white w-fit">
-                  <img src={placeelement} alt="place" className="w-[50px] h-[50px] object-cover" />
+                <div className="place-text flex gap-3 items-center shadow-lg p-4 mb-6 rounded-2xl mt-4 bg-white w-fit">
+                  <img
+                    src={placeelement}
+                    alt="place"
+                    className="w-[50px] h-[50px] object-cover"
+                  />
                   <h6 className="text-lg md:text-xl font-extrabold m-0">We Have More than 10 years of experience</h6>
                 </div>
 
                 <ul className="list-none p-0 pt-4">
                   <li className="pb-3 text-lg font-extrabold font-urbanist flex items-center gap-2">
-                    <i className="fa-solid fa-check text-white bg-primary p-2 rounded-full text-sm"></i>
+                    <span className="bg-primary p-2 rounded-full flex items-center justify-center">
+                      <Check className="text-white w-4 h-4" strokeWidth={3} />
+                    </span>
                     Generation Technology
                   </li>
 
                   <li className="pb-3 text-lg font-extrabold font-urbanist flex items-center gap-2">
-                    <i className="fa-solid fa-check text-white bg-primary p-2 rounded-full text-sm"></i>
+                    <span className="bg-primary p-2 rounded-full flex items-center justify-center">
+                      <Check className="text-white w-4 h-4" strokeWidth={3} />
+                    </span>
                     Generation Technology
                   </li>
 
                   <li className="pb-3 text-lg font-extrabold font-urbanist flex items-center gap-2">
-                    <i className="fa-solid fa-check text-white bg-primary p-2 rounded-full text-sm"></i>
+                    <span className="bg-primary p-2 rounded-full flex items-center justify-center">
+                      <Check className="text-white w-4 h-4" strokeWidth={3} />
+                    </span>
                     Audio Performance
                   </li>
                 </ul>

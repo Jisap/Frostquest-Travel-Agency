@@ -2084,6 +2084,7 @@ ol {
     content: '';
     position: absolute;
     background-color: rgba(0, 0, 0, 0.3);
+    /** Esto oscurece la imagen un 30% */
     width: 100%;
     height: 100%;
     top: 0;
@@ -2094,6 +2095,7 @@ ol {
 
 .travel-experience-image:hover::after {
     opacity: 0;
+    /* Al hacer hover desaparece el oscurecimiento */
 }
 
 .travel-experience-image span {
@@ -2102,11 +2104,13 @@ ol {
 
 .travel-experience-image-mb {
     transform: translateY(30px);
+    /* Esto empuja la imagen 30px hacia abajo */
 }
 
 @media (max-width: 575px) {
     .travel-experience-image-mb {
         transform: translateY(0);
+        /* En móviles no empuja la imagen */
     }
 }
 
@@ -2165,6 +2169,7 @@ ol {
 .travel-places-image img {
     border-radius: 200px;
 }
+
 
 @media (max-width: 991px) {
     .travel-places-image img {
