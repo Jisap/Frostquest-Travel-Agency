@@ -3,6 +3,7 @@ import './App.css'
 import Nav from './Components/Nav/Nav'
 import Index from './Components/Page'
 import About from './Components/Page/About'
+import Footer from './Components/Footer/Footer'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      {location.pathname !== "/" && <Footer />}
     </>
   )
 }
