@@ -1882,6 +1882,144 @@ ol {
 }
 
 /* =============================================
+   TOP DESTINATIONS
+   ============================================= */
+.top-destination-item {
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 390px;
+    margin-bottom: 40px;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 11px 40px 0px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+}
+
+.top-destination-image {
+    transition: all 500ms ease;
+    height: 398px;
+    object-fit: cover;
+    position: relative;
+}
+
+.top-destination-image::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4300e7 0%, #7d00fc 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.top-destination-item:hover .top-destination-image::after {
+    opacity: 0.5;
+}
+
+.top-destination-image img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover;
+}
+
+/* =============================================
+   TOP DESTINATIONS - Iconos (Lucide React)
+   ============================================= */
+.top-destination-icons {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+/* Animación de entrada */
+.top-destination-icons .icon-box:nth-child(1) {
+    transform: translateY(10px);
+    opacity: 0;
+}
+
+.top-destination-icons .icon-box:nth-child(2) {
+    transform: translateY(-10px);
+    opacity: 0;
+}
+
+/* Aparecen en hover */
+.top-destination-item:hover .top-destination-icons .icon-box {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contenedor del icono */
+.top-destination-icons .icon-box {
+    background-color: var(--white);
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    /* Necesario para que ::after se posicione dentro */
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Gradiente morado que crece desde el centro con scale */
+.top-destination-icons .icon-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--prim-gradient);
+    border-radius: 50%;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    z-index: 0;
+    /* Detrás del SVG */
+}
+
+.top-destination-icons .icon-box:hover::after {
+    transform: scale(1);
+}
+
+/* El icono SVG debe estar por encima del gradiente */
+.top-destination-icons .icon-box svg {
+    position: relative;
+    z-index: 1;
+    /* Por encima del ::after */
+    transition: color 0.3s ease;
+}
+
+/* El icono se vuelve blanco al hacer hover */
+.top-destination-icons .icon-box:hover {
+    color: var(--white);
+}
+
+.dest-title-price {
+    padding: 20px 14px 15px;
+    border-bottom: 1px solid #eae8e8;
+}
+
+.trip-time {
+    padding: 20px 30px 15px;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+/* =============================================
    TOP DESTINATIONS - Efectos hover
    ============================================= */
 .top-destination-image::after {

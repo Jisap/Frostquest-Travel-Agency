@@ -40,13 +40,14 @@ import galleryimage3 from '../../assets/gallery-image3.webp';
 import galleryimage4 from '../../assets/gallery-image4.webp';
 import galleryimage5 from '../../assets/gallery-image5.webp';
 import SectionBanner from "../SectionBanner";
+import { Link2, Play } from "lucide-react";
 
 function About() {
   // Datos de destinos
   const destinations = [
-    { id: 1, img: destinationimage1, title: "Rome, Italy", days: "4 Days", price: "$0" },
-    { id: 2, img: destinationimage2, title: "Paris, France", days: "8 Days", price: "$0" },
-    { id: 3, img: destinationimage3, title: "New York, USA", days: "7 Days", price: "$0" }
+    { id: 1, img: destinationimage1, title: "Rome, Italy", days: "4 Days", price: "$800" },
+    { id: 2, img: destinationimage2, title: "Paris, France", days: "8 Days", price: "$1200" },
+    { id: 3, img: destinationimage3, title: "New York, USA", days: "7 Days", price: "$1500" }
   ];
 
   // Datos de testimonios
@@ -93,11 +94,18 @@ function About() {
               <div key={dest.id} className="top-destination-item mx-auto w-full max-w-[390px] overflow-hidden rounded-[40px] bg-white shadow-[0px_11px_40px_0px_rgba(0,0,0,0.04)] cursor-pointer mb-10">
                 <div className="top-destination-image relative h-[398px] overflow-hidden">
                   <img src={dest.img} alt={dest.title} className="w-full h-full object-cover" />
-                  <div className="top-destination-icons absolute inset-0 flex justify-center items-center gap-5 z-10">
-                    <i className="bi bi-play bg-white h-[70px] w-[70px] text-2xl flex justify-center items-center rounded-full cursor-pointer transition-all duration-300 hover:text-white"></i>
-                    <i className="bi bi-link-45deg bg-white h-[70px] w-[70px] text-2xl flex justify-center items-center rounded-full cursor-pointer transition-all duration-300 hover:text-white"></i>
+
+
+                  <div className="top-destination-icons">
+                    <div className="icon-box">
+                      <Play size={28} />
+                    </div>
+                    <div className="icon-box">
+                      <Link2 size={28} />
+                    </div>
                   </div>
                 </div>
+
                 <div className="top-destination-content">
                   <div className="dest-title-price flex justify-between items-center border-b border-gray-200 px-4 py-4">
                     <h3 className="text-xl font-extrabold m-0">{dest.title}</h3>
@@ -124,11 +132,17 @@ function About() {
                 <img src={star} alt="star" className="w-6 h-6" />
                 <h3 className="m-0 text-2xl font-bold">Get To Know Us</h3>
               </div>
+
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Get the Best Travel Experience</h2>
 
               <ul className="list-none p-0">
                 <li className="flex items-start gap-4 pb-6">
-                  <img src={travelIcon1} alt="travel-icon" className="w-[50px] h-[50px] rounded-full bg-white flex-shrink-0" />
+                  <img
+                    src={travelIcon1}
+                    alt="travel-icon"
+                    className="w-[50px] h-[50px] rounded-full bg-white flex-shrink-0"
+                  />
+
                   <div>
                     <h4 className="font-extrabold text-xl mb-2">Best of Hotel</h4>
                     <p className="text-gray-600 leading-relaxed">
@@ -137,8 +151,14 @@ function About() {
                     </p>
                   </div>
                 </li>
+
                 <li className="flex items-start gap-4 pb-6">
-                  <img src={travelIcon2} alt="travel-icon" className="w-[50px] h-[50px] rounded-full bg-white flex-shrink-0" />
+                  <img
+                    src={travelIcon2}
+                    alt="travel-icon"
+                    className="w-[50px] h-[50px] rounded-full bg-white flex-shrink-0"
+                  />
+
                   <div>
                     <h4 className="font-extrabold text-xl mb-2">Friendly price</h4>
                     <p className="text-gray-600 leading-relaxed">
@@ -170,14 +190,17 @@ function About() {
                 <img src={travelexperienceimage1} alt="America" className="w-full h-full object-cover" />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">America</span>
               </div>
+
               <div className="travel-experience-image relative rounded-lg overflow-hidden">
                 <img src={travelexperienceimage3} alt="Africa" className="w-full h-full object-cover" />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">Africa</span>
               </div>
+
               <div className="travel-experience-image travel-experience-image-mb relative rounded-lg overflow-hidden">
                 <img src={travelexperienceimage2} alt="Asia" className="w-full h-full object-cover" />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">Asia</span>
               </div>
+
               <div className="travel-experience-image relative rounded-lg overflow-hidden">
                 <img src={travelexperienceimage3} alt="Europe" className="w-full h-full object-cover" />
                 <span className="absolute bottom-0 left-0 p-2 bg-[#F1EBE6] text-gray-800 text-sm font-bold z-10 rounded-sm">Europe</span>
@@ -237,10 +260,12 @@ function About() {
                     <i className="fa-solid fa-check text-white bg-primary p-2 rounded-full text-sm"></i>
                     Generation Technology
                   </li>
+
                   <li className="pb-3 text-lg font-extrabold font-urbanist flex items-center gap-2">
                     <i className="fa-solid fa-check text-white bg-primary p-2 rounded-full text-sm"></i>
                     Generation Technology
                   </li>
+
                   <li className="pb-3 text-lg font-extrabold font-urbanist flex items-center gap-2">
                     <i className="fa-solid fa-check text-white bg-primary p-2 rounded-full text-sm"></i>
                     Audio Performance
@@ -326,6 +351,7 @@ function About() {
                       <p className="text-lg md:text-xl mb-8 leading-relaxed">
                         {tst.text}
                       </p>
+
                       <div className="ab-tst-bottom flex justify-between items-center w-full mt-auto">
                         <div>
                           <h3 className="bg-white text-gray-800 text-xl px-5 py-2 rounded-tl-[30px] rounded-tr-[30px] rounded-br-[30px] mb-2 font-bold">
@@ -335,6 +361,7 @@ function About() {
                             {tst.role}
                           </span>
                         </div>
+
                         <div className="ab-star flex gap-1">
                           <i className="fa-solid fa-star text-yellow-300 text-xl"></i>
                           <i className="fa-solid fa-star text-yellow-300 text-xl"></i>
@@ -361,6 +388,7 @@ function About() {
               <img src={star} alt="star" className="w-6 h-6" />
               <h3 className="m-0 text-2xl font-bold">Get To Know Us</h3>
             </div>
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Best Holiday Package</h2>
           </div>
 
@@ -371,13 +399,16 @@ function About() {
                 <h2 className="text-5xl md:text-6xl font-bold mb-4">
                   <sup className="text-2xl">$</sup>{plan.price}<small className="text-2xl font-bold">/month</small>
                 </h2>
+
                 <div className="flex justify-center my-6 w-full">
                   <img src={plan.img1} alt="tour1" className="w-[70%] object-cover rounded-[100px]" />
                   <img src={plan.img2} alt="tour2" className="w-[30%] rounded-full object-cover ml-3" />
                 </div>
+
                 <h4 className="font-bold text-4xl md:text-5xl mb-3">{plan.title}</h4>
                 <p className="text-gray-500 text-lg mb-4">We don't just work with concret We are Approachable,</p>
                 <hr className="my-4 border-gray-200" />
+
                 <ul className="list-none p-0 text-left mb-6 flex-grow">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="text-lg md:text-xl font-bold mb-3 flex items-center gap-2">
@@ -386,6 +417,7 @@ function About() {
                     </li>
                   ))}
                 </ul>
+
                 <button className="custome-btn2 w-full">
                   <a href="#" className="text-capitalize">Get Started</a>
                 </button>
