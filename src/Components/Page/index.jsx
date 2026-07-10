@@ -46,6 +46,7 @@ import blog1 from '../../assets/blog-1.webp'
 import blog2 from '../../assets/blog-2.webp'
 import blog3 from '../../assets/blog-3.webp'
 import bannerImg from '../../assets/banner.webp'
+import footer from '../../assets/footer.webp'
 
 
 const Index = () => {
@@ -831,171 +832,186 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white">
-        {/* Footer Header - Sección de suscripción */}
-        <div className="footer-head bg-primary-dark text-white py-12 px-4 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
 
-              {/* Título */}
-              <div className="md:w-1/2 text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight">
-                  Subscribe for latest update about Travelling
-                </h2>
-              </div>
+      <footer className="bg-white flex flex-col lg:flex-row">
 
-              {/* Formulario de suscripción */}
-              <div className="md:w-1/2 w-full">
-                <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full">
-                  <input
-                    type="email"
-                    placeholder="Enter your Email"
-                    className="custom-input flex-1 min-w-0 px-6 py-4 rounded-full border border-gray-200 bg-transparent text-gray-900 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-lg placeholder:text-gray-400"
-                  />
-                  <div className="btn-box shrink-0">
-                    <button className="btn custom-btn1 flex items-center justify-center w-full sm:w-auto whitespace-nowrap">
-                      Subscribe
+        {/* Columna izquierda - Todo el contenido del footer */}
+        <div className="w-full lg:w-2/3 xl:w-3/4 flex flex-col">
+
+          {/* Footer Header - Sección de suscripción */}
+          <div className="footer-head bg-primary-dark text-white py-12 px-4 md:px-10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+
+                {/* Título */}
+                <div className="md:w-1/2 text-center md:text-left">
+                  <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-tight">
+                    Subscribe for latest update about Travelling
+                  </h2>
+                </div>
+
+                {/* Formulario de suscripción */}
+                <div className="w-full md:w-auto flex justify-center md:justify-end">
+                  <div className="flex flex-col gap-4 w-full max-w-[380px]">
+                    <input
+                      type="email"
+                      placeholder="Enter your Email"
+                      className="custom-input w-full px-6 py-4 rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-lg placeholder:text-gray-400"
+                    />
+                    <button className="btn custom-btn1 flex items-center justify-center w-full">
+                      Learn More
                       <img src={btnArrow} className="w-4 h-4 ml-2" alt="Arrow icon" />
                     </button>
                   </div>
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Footer Content */}
-        <div className="py-12 px-4 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Footer Content */}
+          <div className="py-12 px-4 md:px-10">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-              {/* Columna izquierda - Logo y descripción */}
-              <div className="text-center md:text-left">
-                <a href="#" className="logo text-dark text-2xl font-bold block mb-3">
-                  FrostQuest
-                </a>
-                <p className="text-gray-500 leading-relaxed">
-                  Go on a journey of unparalleled adventure with our travel agency, where every detail is curated to perfection, ensuring you not only explore the world but also create cherished memories.
-                </p>
+                {/* Columna izquierda - Logo y descripción */}
+                <div className="text-center md:text-left">
+                  <a href="#" className="footer-logo mb-3">
+                    FrostQuest
+                  </a>
+                  <p className="text-gray-500 leading-relaxed">
+                    Go on a journey of unparalleled adventure with our travel agency, where every detail is curated to perfection, ensuring you not only explore the world but also create cherished memories.
+                  </p>
 
-                {/* Redes sociales */}
-                <ul className="flex justify-center md:justify-start gap-4 list-none mt-6">
-                  <li>
-                    <a href="#" className="icon-link">
-                      <i className="ri-facebook-circle-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icon-link">
-                      <i className="ri-youtube-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icon-link">
-                      <i className="ri-instagram-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icon-link">
-                      <i className="ri-linkedin-box-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
-                    </a>
-                  </li>
-                </ul>
+                  {/* Redes sociales */}
+                  <ul className="flex justify-center md:justify-start gap-4 list-none mt-6">
+                    <li>
+                      <a href="#" className="icon-link">
+                        <i className="ri-facebook-circle-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="icon-link">
+                        <i className="ri-youtube-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="icon-link">
+                        <i className="ri-instagram-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="icon-link">
+                        <i className="ri-linkedin-box-fill text-2xl text-btn-dark hover:text-primary transition-all duration-300 hover:scale-110"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Columna derecha - Links */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 md:mt-12 text-center md:text-left">
+
+                  {/* Columna 1 */}
+                  <div>
+                    <ul className="footer-links list-none text-center md:text-left">
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          About
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Services
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Login
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Flights
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Columna 2 */}
+                  <div>
+                    <ul className="footer-links list-none text-center md:text-left">
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Booking
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          FAQ
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Hotels
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Teams
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Columna 3 */}
+                  <div>
+                    <ul className="footer-links list-none text-center md:text-left">
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Terms & Use
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Sitemap
+                        </a>
+                      </li>
+                      <li className="mb-3">
+                        <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
+                          Contact Us
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+
               </div>
-
-              {/* Columna derecha - Links */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 md:mt-12 text-center md:text-left">
-
-                {/* Columna 1 */}
-                <div>
-                  <ul className="footer-links list-none text-left">
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        About
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Services
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Login
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Flights
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Columna 2 */}
-                <div>
-                  <ul className="footer-links list-none text-left">
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Booking
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        FAQ
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Hotels
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Teams
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Columna 3 */}
-                <div>
-                  <ul className="footer-links list-none text-left">
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Terms & Use
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Sitemap
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a href="#" className="text-gray-600 text-base inline-block transition-all duration-300 hover:text-primary hover:translate-x-1">
-                        Contact Us
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-              </div>
-
             </div>
           </div>
+
+          {/* Footer Bottom - Copyright */}
+          <div className="footer-bottom py-3 px-4 bg-gray-800">
+            <div className="max-w-7xl mx-auto text-center">
+              <p className="text-white text-lg m-0">
+                © 2026 FrostQuest. All rights reserved.
+              </p>
+            </div>
+          </div>
+
         </div>
 
-        {/* Footer Bottom - Copyright */}
-        <div className="footer-bottom border-t border-gray-200 py-6 px-4">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-gray-600 text-lg m-0">
-              © 2026 FrostQuest. All rights reserved.
-            </p>
-          </div>
+        {/* Columna derecha - Imagen fija en todo el alto */}
+        <div className="hidden lg:block lg:w-1/3 xl:w-1/4 relative">
+          <img
+            src={footer}
+            alt="Traveler overlooking a cliff at sunset"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
 
       </footer>
+
     </>
   )
 }

@@ -140,6 +140,19 @@ ol {
     transition: color 0.3s ease;
 }
 
+.footer-logo {
+    font-family: var(--font-kings);
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-logo:hover {
+    color: var(--color-primary);
+}
+
 /* Al hacer scroll, logo cambia a oscuro */
 .custom-nav.nav-scrolled .logo,
 .custom-nav.nav-scrolled .logo span {
