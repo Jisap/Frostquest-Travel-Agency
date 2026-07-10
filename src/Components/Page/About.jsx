@@ -278,7 +278,7 @@ function About() {
                   <img
                     src={placeelement}
                     alt="place"
-                    className="w-[50px] h-[50px] object-cover"
+                    className="w-[50px] h-[50px] object-contain"
                   />
                   <h6 className="text-lg md:text-xl font-extrabold m-0">We Have More than 10 years of experience</h6>
                 </div>
