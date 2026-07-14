@@ -1820,7 +1820,7 @@ ol {
    ============================================= */
 .section-banner {
     width: 100%;
-    background: url(assets/section-banner.webp) no-repeat;
+    background: url(./assets/section-banner.webp) no-repeat;
     background-position: center;
     background-size: cover;
 }

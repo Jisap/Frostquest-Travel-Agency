@@ -4,6 +4,7 @@ import Nav from './Components/Nav/Nav'
 import Index from './Components/Page'
 import About from './Components/Page/About'
 import Footer from './Components/Footer/Footer'
+import Tours from './Components/Page/Tour'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
+        <Route path="/tour" element={<Tours />} />
       </Routes>
       {location.pathname !== "/" && <Footer />}
     </>
