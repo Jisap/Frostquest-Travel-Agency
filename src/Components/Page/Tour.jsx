@@ -17,8 +17,8 @@ import SectionBanner from '../SectionBanner';
 
 // ── Opciones derivadas dinámicamente del JSON ──────────────────────────────
 const ALL_DESTINATIONS = [...new Set(Datas.map(d => d.location))];
-const ALL_ACTIVITIES   = [...new Set(Datas.flatMap(d => d.activities || []))];
-const ALL_TYPES        = [...new Set(Datas.map(d => d.type).filter(Boolean))];
+const ALL_ACTIVITIES = [...new Set(Datas.flatMap(d => d.activities || []))];
+const ALL_TYPES = [...new Set(Datas.map(d => d.type).filter(Boolean))];
 
 function parsePrice(priceStr) {
   return parseInt(priceStr.replace(/[^0-9]/g, ''), 10);
@@ -27,9 +27,9 @@ function parsePrice(priceStr) {
 function Tours() {
   // ── Estado de filtros ──────────────────────────────────────────────────
   const [selectedDestinations, setSelectedDestinations] = useState([]);
-  const [selectedActivities,   setSelectedActivities]   = useState([]);
-  const [selectedTypes,        setSelectedTypes]        = useState([]);
-  const [sortBy,   setSortBy]   = useState('default'); // 'default' | 'price-asc' | 'price-desc' | 'name'
+  const [selectedActivities, setSelectedActivities] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [sortBy, setSortBy] = useState('default'); // 'default' | 'price-asc' | 'price-desc' | 'name'
   const [viewMode, setViewMode] = useState('grid');    // 'grid' | 'list'
 
   // ── Helpers ────────────────────────────────────────────────────────────
@@ -47,34 +47,41 @@ function Tours() {
 
   const activeFilterTags = [
     ...selectedDestinations.map(v => ({ value: v, group: 'dest' })),
-    ...selectedActivities.map(v =>   ({ value: v, group: 'act'  })),
-    ...selectedTypes.map(v =>        ({ value: v, group: 'type' })),
+    ...selectedActivities.map(v => ({ value: v, group: 'act' })),
+    ...selectedTypes.map(v => ({ value: v, group: 'type' })),
   ];
   const hasActiveFilters = activeFilterTags.length > 0;
 
   const removeTag = ({ value, group }) => {
     if (group === 'dest') toggleFilter(value, setSelectedDestinations, selectedDestinations);
-    if (group === 'act')  toggleFilter(value, setSelectedActivities,   selectedActivities);
-    if (group === 'type') toggleFilter(value, setSelectedTypes,        selectedTypes);
+    if (group === 'act') toggleFilter(value, setSelectedActivities, selectedActivities);
+    if (group === 'type') toggleFilter(value, setSelectedTypes, selectedTypes);
   };
 
   // ── Filtrado + ordenamiento (memoizado) ────────────────────────────────
   const filteredTours = useMemo(() => {
+    // 1. Copiamos los datos originales
     let result = [...Datas];
 
+    // 2. Aplica filtros (Lógica AND entre categorías, OR dentro de la misma categoría)
+    // Filtramos por Destino. 'result' ahora solo tiene [Tour A, Tour B]
     if (selectedDestinations.length)
       result = result.filter(t => selectedDestinations.includes(t.location));
 
+    // Filtramos por Actividad SOBRE EL RESULTADO ANTERIOR.
+    // De [Tour A, Tour B], solo el Tour A tiene Senderismo.
     if (selectedActivities.length)
       result = result.filter(t =>
         (t.activities || []).some(a => selectedActivities.includes(a)));
 
+    // Filtramos el resultado anterior por la categoría del viaje
     if (selectedTypes.length)
       result = result.filter(t => selectedTypes.includes(t.type));
 
-    if (sortBy === 'price-asc')  result.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+    // 3. Se aplica el ordenamiento
+    if (sortBy === 'price-asc') result.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
     if (sortBy === 'price-desc') result.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
-    if (sortBy === 'name')       result.sort((a, b) => a.name.localeCompare(b.name));
+    if (sortBy === 'name') result.sort((a, b) => a.name.localeCompare(b.name));
 
     return result;
   }, [selectedDestinations, selectedActivities, selectedTypes, sortBy]);
@@ -82,15 +89,14 @@ function Tours() {
   // ── Conteos para badges ────────────────────────────────────────────────
   const destCounts = useMemo(() =>
     Object.fromEntries(ALL_DESTINATIONS.map(d => [d, Datas.filter(t => t.location === d).length])), []);
-  const actCounts  = useMemo(() =>
+  const actCounts = useMemo(() =>
     Object.fromEntries(ALL_ACTIVITIES.map(a => [a, Datas.filter(t => (t.activities || []).includes(a)).length])), []);
   const typeCounts = useMemo(() =>
     Object.fromEntries(ALL_TYPES.map(tp => [tp, Datas.filter(t => t.type === tp).length])), []);
 
   // ── Render de una fila de checkbox ────────────────────────────────────
   const FilterRow = ({ label, count, checked, onChange }) => (
-    <label className={`flex items-center justify-between p-2 border-b border-gray-200 cursor-pointer rounded transition-colors ${
-      checked ? 'bg-purple-50' : 'hover:bg-gray-100'}`}>
+    <label className={`flex items-center justify-between p-2 border-b border-gray-200 cursor-pointer rounded transition-colors ${checked ? 'bg-purple-50' : 'hover:bg-gray-100'}`}>
       <div className="flex items-center gap-2">
         <input
           type="checkbox"
@@ -100,8 +106,7 @@ function Tours() {
         />
         <span className={`font-medium ${checked ? 'text-[#4300e7]' : 'text-gray-700'}`}>{label}</span>
       </div>
-      <span className={`w-[30px] h-[30px] rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
-        checked ? 'bg-[#4300e7] text-white' : 'bg-[#EFEFEF] text-gray-600'}`}>
+      <span className={`w-[30px] h-[30px] rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${checked ? 'bg-[#4300e7] text-white' : 'bg-[#EFEFEF] text-gray-600'}`}>
         {count}
       </span>
     </label>
@@ -135,8 +140,7 @@ function Tours() {
                   <button
                     onClick={clearAll}
                     disabled={!hasActiveFilters}
-                    className={`w-[130px] h-[42px] rounded-lg text-sm font-semibold transition-all ${
-                      hasActiveFilters
+                    className={`w-[130px] h-[42px] rounded-lg text-sm font-semibold transition-all ${hasActiveFilters
                         ? 'bg-[#4300e7] text-white hover:opacity-90 shadow-md'
                         : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
                   >
@@ -233,8 +237,7 @@ function Tours() {
                   <button
                     onClick={() => setViewMode('list')}
                     title="Vista lista"
-                    className={`w-[40px] h-[40px] flex items-center justify-center rounded border transition ${
-                      viewMode === 'list'
+                    className={`w-[40px] h-[40px] flex items-center justify-center rounded border transition ${viewMode === 'list'
                         ? 'border-[#4300e7] bg-[#4300e7] text-white'
                         : 'border-gray-400/60 text-black/60 hover:bg-gray-100'}`}
                   >
@@ -243,8 +246,7 @@ function Tours() {
                   <button
                     onClick={() => setViewMode('grid')}
                     title="Vista grid"
-                    className={`w-[40px] h-[40px] flex items-center justify-center rounded border transition ${
-                      viewMode === 'grid'
+                    className={`w-[40px] h-[40px] flex items-center justify-center rounded border transition ${viewMode === 'grid'
                         ? 'border-[#4300e7] bg-[#4300e7] text-white'
                         : 'border-gray-400/60 text-black/60 hover:bg-gray-100'}`}
                   >
@@ -336,7 +338,7 @@ function Tours() {
                   </div>
                 ) : (
 
-                /* ── Lista ── */
+                  /* ── Lista ── */
                   <div className="flex flex-col gap-4">
                     {filteredTours.map(tour => (
                       <div
