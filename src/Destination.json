@@ -6,6 +6,8 @@
     "days": "7 Days",
     "price": "$11000",
     "location": "Canada",
+    "activities": ["Boating", "Kayaking", "Niagara Falls"],
+    "type": "Standard",
     "pere": "Far far away, behind the mountains, far from the countries Vokalia and Consonantia"
   },
   {
@@ -15,6 +17,8 @@
     "days": "7 Days",
     "price": "$15000",
     "location": "France",
+    "activities": ["City Tour"],
+    "type": "Premium",
     "pere": "Visit the Eiffel Tower and the Louvre Museum as well as the Notre-Dame Cathedral"
   },
   {
@@ -24,6 +28,8 @@
     "days": "7 Days",
     "price": "$13000",
     "location": "Shouth Africa",
+    "activities": ["City Tour", "Boating"],
+    "type": "Standard",
     "pere": "Explore the beautiful landscapes of South Africa and its stunning wildlife"
   },
   {
@@ -33,6 +39,8 @@
     "days": "7 Days",
     "price": "$19000",
     "location": "Emirates",
+    "activities": ["City Tour", "Kayaking"],
+    "type": "Luxury",
     "pere": "Visit the Burj Khalifa and the Dubai Mall as well as the Palm Jumeirah"
   },
   {
@@ -42,6 +50,8 @@
     "days": "7 Days",
     "price": "$35000",
     "location": "London",
+    "activities": ["City Tour", "Boating"],
+    "type": "Luxury",
     "pere": "Visit the Buckingham Palace and the Tower of London as well as the British Museum"
   }
 ]
