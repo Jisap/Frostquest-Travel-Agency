@@ -5,6 +5,7 @@ import Index from './Components/Page'
 import About from './Components/Page/About'
 import Footer from './Components/Footer/Footer'
 import Tours from './Components/Page/Tour'
+import ToursDetails from './Components/Page/Tours-Details'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/tour" element={<Tours />} />
+        <Route path="/tour-details/:id" element={<ToursDetails />} />
       </Routes>
       {location.pathname !== "/" && <Footer />}
     </>

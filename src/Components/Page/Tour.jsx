@@ -114,7 +114,7 @@ function Tours() {
 
   return (
     <>
-      <SectionBanner title="Tour" currentPage="Tour" />
+      <SectionBanner title="Trip Search Result" currentPage="Trip Search Result" />
 
       {/* ============ TOURS WRAPPER ============ */}
       <div className="tours-wrapper py-12 md:py-20">
@@ -141,8 +141,8 @@ function Tours() {
                     onClick={clearAll}
                     disabled={!hasActiveFilters}
                     className={`w-[130px] h-[42px] rounded-lg text-sm font-semibold transition-all ${hasActiveFilters
-                        ? 'bg-[#4300e7] text-white hover:opacity-90 shadow-md'
-                        : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+                      ? 'bg-[#4300e7] text-white hover:opacity-90 shadow-md'
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
                   >
                     Clear All
                   </button>
@@ -238,8 +238,8 @@ function Tours() {
                     onClick={() => setViewMode('list')}
                     title="Vista lista"
                     className={`w-[40px] h-[40px] flex items-center justify-center rounded border transition ${viewMode === 'list'
-                        ? 'border-[#4300e7] bg-[#4300e7] text-white'
-                        : 'border-gray-400/60 text-black/60 hover:bg-gray-100'}`}
+                      ? 'border-[#4300e7] bg-[#4300e7] text-white'
+                      : 'border-gray-400/60 text-black/60 hover:bg-gray-100'}`}
                   >
                     <List size={20} />
                   </button>
@@ -247,8 +247,8 @@ function Tours() {
                     onClick={() => setViewMode('grid')}
                     title="Vista grid"
                     className={`w-[40px] h-[40px] flex items-center justify-center rounded border transition ${viewMode === 'grid'
-                        ? 'border-[#4300e7] bg-[#4300e7] text-white'
-                        : 'border-gray-400/60 text-black/60 hover:bg-gray-100'}`}
+                      ? 'border-[#4300e7] bg-[#4300e7] text-white'
+                      : 'border-gray-400/60 text-black/60 hover:bg-gray-100'}`}
                   >
                     <Grid3x3 size={20} />
                   </button>
