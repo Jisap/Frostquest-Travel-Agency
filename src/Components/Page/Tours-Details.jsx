@@ -66,7 +66,10 @@ function ToursDetails() {
               <button
                 key={index}
                 onClick={() => setMainImage(img)}
-                className={`flex-shrink-0 w-20 h-20 lg:w-full lg:h-24 rounded-xl overflow-hidden border-2 transition-all ${mainImage === img ? 'border-[var(--primary-color)] opacity-100' : 'border-transparent opacity-70 hover:opacity-100'
+                className={`flex-shrink-0 w-20 h-20 lg:w-full lg:h-24 rounded-xl overflow-hidden border-2 transition-all 
+                  ${mainImage === img
+                    ? 'border-[var(--primary-color)] opacity-100'
+                    : 'border-transparent opacity-70 hover:opacity-100'
                   }`}
               >
                 <img
