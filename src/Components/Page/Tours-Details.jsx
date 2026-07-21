@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import {
-  Building, Banknote, MapPin, Calendar, Plane, ShieldCheck,
-  CheckCircle, XCircle, Languages, UserCheck, User, Truck,
-  Star, X, Minus, Plus
-} from 'lucide-react';
+  FiMapPin, FiCalendar, FiShield, FiCheck,
+  FiX, FiMinus, FiPlus
+} from 'react-icons/fi';
+import {
+  MdOutlineHotel, MdOutlineMoneyOff, MdOutlineFlight,
+  MdOutlineCheckCircle, MdOutlineCancel, MdOutlineLanguage,
+  MdOutlineBadge, MdOutlinePerson, MdOutlineLocalShipping
+} from 'react-icons/md';
+import { FaStar } from 'react-icons/fa';
+import { LiaBanSolid } from 'react-icons/lia';
 
 // Componente reutilizable (ajusta la ruta según tu estructura)
 import SectionBanner from '../SectionBanner';
 
-// Data & Images
+// Data
 import Datas from './../../Destination.json';
-import DestinationImage1 from '../../../public/Images/Destination-8.webp';
-import DestinationImage2 from '../../../public/Images/Destination-image-4.webp';
-import DestinationImage3 from '../../../public/Images/Destination-image-2.webp';
-import DestinationImage4 from '../../../public/Images/Destination-image-1.webp';
+
+// Imágenes desde public/ — se referencian como rutas estáticas, no imports
+const DestinationImage1 = '/Images/Destination-8.webp';
+const DestinationImage2 = '/Images/Destination-image-4.webp';
+const DestinationImage3 = '/Images/Destination-image-2.webp';
+const DestinationImage4 = '/Images/Destination-image-1.webp';
 
 function ToursDetails() {
   const { id } = useParams();
@@ -31,7 +39,7 @@ function ToursDetails() {
   const [childCount, setChildCount] = useState(0);
 
   const priceAdult = parseInt(tours?.price?.replace(/\D/g, "") || "0");
-  const priceChild = parseInt(tours?.price?.replace(/\D/g, "") || "0"); // Misma lógica que el original
+  const priceChild = parseInt(tours?.price?.replace(/\D/g, "") || "0");
 
   const adultTotal = priceAdult * adultCount;
   const childTotal = priceChild * childCount;
@@ -103,18 +111,18 @@ function ToursDetails() {
 
         {/* 4. Cuadrícula de Información del Tour */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-16">
-          <InfoItem icon={Building} label="Accommodation" value="5 Star Hotel" />
-          <InfoItem icon={Banknote} label="Admission Fee" value="No" />
-          <InfoItem icon={MapPin} label="Arrival City" value="London" />
-          <InfoItem icon={Calendar} label="Best Season" value="Autumn" />
-          <InfoItem icon={Plane} label="Departure City" value="Kathmandu" />
-          <InfoItem icon={ShieldCheck} label="Insurance" value="Cover 60%" />
-          <InfoItem icon={CheckCircle} label="Free Cancel" value="Yes" />
-          <InfoItem icon={Languages} label="Language" value="English" />
-          <InfoItem icon={UserCheck} label="Guide" value="Guided (01)" />
-          <InfoItem icon={User} label="Minimum Age" value="18" />
-          <InfoItem icon={Truck} label="Hotel Transfer" value="Available" />
-          <InfoItem icon={User} label="Maximum Age" value="54" />
+          <InfoItem icon={MdOutlineHotel}        label="Accommodation" value="5 Star Hotel" />
+          <InfoItem icon={MdOutlineMoneyOff}     label="Admission Fee"  value="No" />
+          <InfoItem icon={FiMapPin}              label="Arrival City"   value="London" />
+          <InfoItem icon={FiCalendar}            label="Best Season"    value="Autumn" />
+          <InfoItem icon={MdOutlineFlight}       label="Departure City" value="Kathmandu" />
+          <InfoItem icon={FiShield}              label="Insurance"      value="Cover 60%" />
+          <InfoItem icon={MdOutlineCheckCircle}  label="Free Cancel"    value="Yes" />
+          <InfoItem icon={MdOutlineLanguage}     label="Language"       value="English" />
+          <InfoItem icon={MdOutlineBadge}        label="Guide"          value="Guided (01)" />
+          <InfoItem icon={MdOutlinePerson}       label="Minimum Age"    value="18" />
+          <InfoItem icon={MdOutlineLocalShipping} label="Hotel Transfer" value="Available" />
+          <InfoItem icon={MdOutlinePerson}       label="Maximum Age"    value="54" />
         </div>
 
         {/* 5. Overview */}
@@ -143,7 +151,7 @@ function ToursDetails() {
               "Enjoy the amazing view of the Himalayas from Kala Patthar"
             ].map((highlight, idx) => (
               <li key={idx} className="flex items-start gap-3 text-lg text-gray-700">
-                <Star className="w-5 h-5 text-[var(--primary-color)] fill-[var(--primary-color)] flex-shrink-0 mt-1" />
+                <FaStar className="text-[var(--primary-color)] flex-shrink-0 mt-1" size={18} />
                 <span>{highlight}</span>
               </li>
             ))}
@@ -157,13 +165,12 @@ function ToursDetails() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">
-                <CheckCircle className="w-6 h-6" /> Included
+                <MdOutlineCheckCircle size={24} /> Included
               </h3>
-
               <ul className="space-y-3">
                 {["Meal as per hotel Plan and drinks free too.", "Return airport and round trip transfers.", "Accommodation on twin sharing basis.", "The above per day disposal basis", "Enjoy Brussels day tour Overnight Brussels"].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <FiCheck className="text-green-600 flex-shrink-0 mt-0.5" size={18} />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -172,12 +179,12 @@ function ToursDetails() {
 
             <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-red-800 mb-4 flex items-center gap-2">
-                <XCircle className="w-6 h-6" /> Excluded
+                <MdOutlineCancel size={24} /> Excluded
               </h3>
               <ul className="space-y-3">
                 {["Personal expenses and tips.", "Travel insurance.", "Optional excursions.", "Visa fees.", "Anything not mentioned in 'Included'"].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-gray-700">
-                    <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <FiX className="text-red-600 flex-shrink-0 mt-0.5" size={18} />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -273,7 +280,7 @@ function ToursDetails() {
         </div>
       </div>
 
-      {/* 9. Booking Modal (Controlado por React */}
+      {/* 9. Booking Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}>
           <div className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col lg:flex-row" onClick={(e) => e.stopPropagation()}>
@@ -296,7 +303,7 @@ function ToursDetails() {
                     onClick={() => setAdultCount(Math.max(1, adultCount - 1))}
                     className="px-3 py-2 hover:bg-gray-100 transition text-gray-600"
                   >
-                    <Minus size={18} />
+                    <FiMinus size={18} />
                   </button>
 
                   <input
@@ -310,7 +317,7 @@ function ToursDetails() {
                     onClick={() => setAdultCount(adultCount + 1)}
                     className="px-3 py-2 hover:bg-gray-100 transition text-gray-600"
                   >
-                    <Plus size={18} />
+                    <FiPlus size={18} />
                   </button>
                 </div>
               </div>
@@ -329,7 +336,7 @@ function ToursDetails() {
                     onClick={() => setChildCount(Math.max(0, childCount - 1))}
                     className="px-3 py-2 hover:bg-gray-100 transition text-gray-600"
                   >
-                    <Minus size={18} />
+                    <FiMinus size={18} />
                   </button>
 
                   <input
@@ -343,7 +350,7 @@ function ToursDetails() {
                     onClick={() => setChildCount(childCount + 1)}
                     className="px-3 py-2 hover:bg-gray-100 transition text-gray-600"
                   >
-                    <Plus size={18} />
+                    <FiPlus size={18} />
                   </button>
                 </div>
               </div>
@@ -361,13 +368,13 @@ function ToursDetails() {
                   onClick={() => setIsModalOpen(false)}
                   className="text-gray-400 hover:text-gray-900 transition p-1 hover:bg-gray-200 rounded-full"
                 >
-                  <X size={24} />
+                  <FiX size={24} />
                 </button>
               </div>
 
               <div className="mb-6">
                 <h4 className="font-bold text-gray-900 text-lg mb-1">{tour?.name}</h4>
-                <p className="text-sm text-gray-600 flex items-center gap-1"><MapPin size={14} /> {tour?.location}</p>
+                <p className="text-sm text-gray-600 flex items-center gap-1"><FiMapPin size={14} /> {tour?.location}</p>
                 <p className="text-sm text-gray-600 mt-2">Starting Date: <span className="font-semibold text-gray-900">April 27, 2025</span></p>
               </div>
 

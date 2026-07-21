@@ -7,6 +7,7 @@ import Footer from './Components/Footer/Footer'
 import Tours from './Components/Page/Tour'
 import ToursDetails from './Components/Page/Tours-Details'
 import Blog from './Components/Page/Blog'
+import BlogDetails from './Components/Page/BlogDetails'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/tour" element={<Tours />} />
         <Route path="/tour-details/:id" element={<ToursDetails />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog-details/:id" element={<BlogDetails />} />
       </Routes>
       {location.pathname !== "/" && <Footer />}
     </>

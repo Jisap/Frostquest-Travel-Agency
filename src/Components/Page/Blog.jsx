@@ -1,27 +1,16 @@
 import React, { useState } from 'react';
+import { blogPosts } from '../../data/blogData.js';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Search, Asterisk, Calendar, X } from 'lucide-react';
+import { FiArrowUpRight, FiSearch, FiCalendar, FiX } from 'react-icons/fi';
+import { BsAsterisk } from 'react-icons/bs';
 
 import SectionBanner from '../SectionBanner';
 
 import blogAuthor from './../../assets/blog-author.jpeg';
-import blog1 from './../../assets/blog1.webp';
-import blog2 from './../../assets/blog2.webp';
-import blog3 from './../../assets/blog3.webp';
-import blog4 from './../../assets/blog4.webp';
-import blog5 from './../../assets/blog5.webp';
 
 function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const blogPosts = [
-    { id: 1, img: blog1, title: "Island Hopping And Weather Tips", category: "Sea Tour" },
-    { id: 2, img: blog2, title: "Beach Days, Long Hikes, And", category: "Adventure" },
-    { id: 3, img: blog3, title: "Experience the World with Our Travel Company", category: "City Tours" },
-    { id: 4, img: blog4, title: "Experience the World with Our Travel Company", category: "Cruises Tour" },
-    { id: 5, img: blog5, title: "Assertively iterate resource maximizing", category: "Adventure" }
-  ];
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -65,7 +54,7 @@ function Blog() {
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--primary-color)] text-white text-sm font-medium">
                       {selectedCategory}
                       <button onClick={() => setSelectedCategory(null)} className="hover:text-gray-200">
-                        <X size={14} />
+                        <FiX size={14} />
                       </button>
                     </span>
                   )}
@@ -73,7 +62,7 @@ function Blog() {
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">
                       Search: "{searchQuery}"
                       <button onClick={() => setSearchQuery('')} className="hover:text-gray-900">
-                        <X size={14} />
+                        <FiX size={14} />
                       </button>
                     </span>
                   )}
@@ -88,45 +77,51 @@ function Blog() {
 
               {filteredPosts.length > 0 ? (
                 filteredPosts.map((post) => (
-                  <article key={post.id} className="bg-white border border-[var(--border-color)] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
-                    <div className="overflow-hidden">
-                      <img
-                        src={post.img}
-                        alt={post.title}
-                        className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-
-                    <div className="p-6 md:p-8">
-                      <span className="inline-block px-3 py-1 rounded-full bg-[var(--primary-light)] text-[var(--primary-color)] text-xs font-bold uppercase tracking-wider mb-4">
-                        {post.category}
-                      </span>
-
-                      <div className="flex items-center gap-4 mb-4">
-                        <img src={blogAuthor} alt="Author" className="w-12 h-12 rounded-full object-cover border-2 border-gray-100" />
+                  <Link
+                    key={post.id}
+                    to={`/blog-details/${post.id}`}
+                    className="block bg-white border border-[var(--border-color)] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group"
+                  >
+                    <article key={post.id} className="bg-white border border-[var(--border-color)] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+                      <div className="overflow-hidden">
+                        <img
+                          src={post.img}
+                          alt={post.title}
+                          className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
                       </div>
 
-                      <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--pg-color)] mb-4 hover:text-[var(--primary-color)] transition-colors cursor-pointer">
-                        {post.title}
-                      </h3>
-
-                      <p className="text-lg text-[var(--pg-color)] leading-relaxed mb-6">
-                        {excerpt}
-                      </p>
-
-                      <a href="#" className="inline-flex items-center gap-3 text-lg font-bold text-[var(--secondary-color)] uppercase group/link">
-                        Explore More
-                        <span className="w-10 h-10 rounded-full bg-[var(--primary-color)] text-white flex items-center justify-center group-hover/link:bg-[var(--primary-dark)] transition-colors duration-300">
-                          <ArrowUpRight size={20} />
+                      <div className="p-6 md:p-8">
+                        <span className="inline-block px-3 py-1 rounded-full bg-[var(--primary-light)] text-[var(--primary-color)] text-xs font-bold uppercase tracking-wider mb-4">
+                          {post.category}
                         </span>
-                      </a>
-                    </div>
-                  </article>
+
+                        <div className="flex items-center gap-4 mb-4">
+                          <img src={blogAuthor} alt="Author" className="w-12 h-12 rounded-full object-cover border-2 border-gray-100" />
+                        </div>
+
+                        <h3 className="text-2xl md:text-3xl font-extrabold text-[var(--pg-color)] mb-4 hover:text-[var(--primary-color)] transition-colors cursor-pointer">
+                          {post.title}
+                        </h3>
+
+                        <p className="text-lg text-[var(--pg-color)] leading-relaxed mb-6">
+                          {excerpt}
+                        </p>
+
+                        <a href="#" className="inline-flex items-center gap-3 text-lg font-bold text-[var(--secondary-color)] uppercase group/link">
+                          Explore More
+                          <span className="w-10 h-10 rounded-full bg-[var(--primary-color)] text-white flex items-center justify-center group-hover/link:bg-[var(--primary-dark)] transition-colors duration-300">
+                            <FiArrowUpRight size={20} />
+                          </span>
+                        </a>
+                      </div>
+                    </article>
+                  </Link>
                 ))
               ) : (
                 <div className="text-center py-20 bg-gray-50 rounded-xl border border-dashed border-gray-300">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-200 mb-4">
-                    <Search size={32} className="text-gray-400" />
+                    <FiSearch size={32} className="text-gray-400" />
                   </div>
                   <p className="text-xl text-gray-600 font-medium mb-2">
                     No posts found matching your filters
@@ -147,7 +142,7 @@ function Blog() {
               {/* Widget: Búsqueda */}
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl border border-gray-200/50">
                 <h4 className="text-lg font-bold text-[var(--pg-color)] mb-4 flex items-center gap-2">
-                  <Search size={18} className="text-[var(--primary-color)]" />
+                  <FiSearch size={18} className="text-[var(--primary-color)]" />
                   Search
                 </h4>
                 <div className="relative">
@@ -164,11 +159,11 @@ function Blog() {
                       onClick={() => setSearchQuery('')}
                       className="absolute right-12 top-0 h-12 w-8 text-gray-400 hover:text-gray-700 flex items-center justify-center"
                     >
-                      <X size={16} />
+                      <FiX size={16} />
                     </button>
                   )}
                   <button className="absolute right-0 top-0 h-12 w-12 bg-gradient-to-r from-[#4300e7] to-[#7d00fc] text-white rounded-r-lg flex items-center justify-center hover:opacity-90 transition-opacity">
-                    <Search size={16} />
+                    <FiSearch size={16} />
                   </button>
                 </div>
               </div>
@@ -176,7 +171,7 @@ function Blog() {
               {/* Widget: Categorías */}
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl border border-gray-200/50">
                 <h5 className="text-lg font-bold text-[var(--pg-color)] mb-4 flex items-center gap-2">
-                  <Asterisk size={18} className="text-[var(--primary-color)]" strokeWidth={3} />
+                  <BsAsterisk size={18} className="text-[var(--primary-color)]" />
                   Categories
                 </h5>
                 <ul className="space-y-1">
@@ -210,26 +205,32 @@ function Blog() {
               {/* Widget: Publicaciones Recientes */}
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl border border-gray-200/50">
                 <h4 className="text-lg font-bold text-[var(--pg-color)] mb-4 flex items-center gap-2">
-                  <Calendar size={18} className="text-[var(--primary-color)]" />
+                  <FiCalendar size={18} className="text-[var(--primary-color)]" />
                   Recent Posts
                 </h4>
                 <div className="space-y-3">
                   {blogPosts.slice(0, 4).map((post, idx) => (
-                    <div key={idx} className="flex gap-3 group cursor-pointer pb-3 border-b border-gray-200/50 last:border-0 last:pb-0">
-                      <img
-                        src={post.img}
-                        alt={post.title}
-                        className="w-16 h-16 rounded-lg object-cover flex-shrink-0 group-hover:opacity-80 transition-opacity"
-                      />
-                      <div className="flex flex-col justify-center min-w-0">
-                        <span className="flex items-center gap-1 text-xs font-semibold text-[var(--primary-color)] mb-0.5">
-                          <Calendar size={10} /> May 11, 2024
-                        </span>
-                        <p className="text-sm font-bold text-[var(--pg-color)] leading-tight group-hover:text-[var(--primary-color)] transition-colors line-clamp-2">
-                          {post.title}
-                        </p>
+                    <Link
+                      key={idx}
+                      to={`/blog-details/${post.id}`}
+                      className="flex gap-3 group cursor-pointer pb-3 border-b border-gray-200/50 last:border-0 last:pb-0"
+                    >
+                      <div key={idx} className="flex gap-3 group cursor-pointer pb-3 border-b border-gray-200/50 last:border-0 last:pb-0">
+                        <img
+                          src={post.img}
+                          alt={post.title}
+                          className="w-16 h-16 rounded-lg object-cover flex-shrink-0 group-hover:opacity-80 transition-opacity"
+                        />
+                        <div className="flex flex-col justify-center min-w-0">
+                          <span className="flex items-center gap-1 text-xs font-semibold text-[var(--primary-color)] mb-0.5">
+                            <FiCalendar size={10} /> May 11, 2024
+                          </span>
+                          <p className="text-sm font-bold text-[var(--pg-color)] leading-tight group-hover:text-[var(--primary-color)] transition-colors line-clamp-2">
+                            {post.title}
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
