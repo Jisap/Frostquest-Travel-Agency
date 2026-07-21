@@ -13,9 +13,8 @@ import blog5 from './../../assets/blog5.webp';
 
 function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState(null); // null = todas
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // 1. Agregamos la propiedad "category" a cada post
   const blogPosts = [
     { id: 1, img: blog1, title: "Island Hopping And Weather Tips", category: "Sea Tour" },
     { id: 2, img: blog2, title: "Beach Days, Long Hikes, And", category: "Adventure" },
@@ -24,7 +23,6 @@ function Blog() {
     { id: 5, img: blog5, title: "Assertively iterate resource maximizing", category: "Adventure" }
   ];
 
-  // 2. Filtro combinado: búsqueda + categoría
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = !selectedCategory || post.category === selectedCategory;
@@ -34,14 +32,13 @@ function Blog() {
   const excerpt = "Non libero hac commodo torquent finibus metus. Duis in nisi diam nunc habitasse lorem elit. Ante porta accumsan sociosqu faucibus ultrices posuere. Vivamus id efficitur tristique hac elit egestas Sed efficitur fringilla habitant tempus tincidunt facilisis auctor pellentes sem.";
 
   const categories = [
-    { name: "All", count: blogPosts.length }, // Categoría "Todas"
+    { name: "All", count: blogPosts.length },
     { name: "Adventure", count: 2 },
     { name: "City Tours", count: 4 },
     { name: "Cruises Tour", count: 3 },
     { name: "Sea Tour", count: 2 }
   ];
 
-  // 3. Función para limpiar todos los filtros
   const clearFilters = () => {
     setSearchQuery('');
     setSelectedCategory(null);
@@ -101,7 +98,6 @@ function Blog() {
                     </div>
 
                     <div className="p-6 md:p-8">
-                      {/* Badge de categoría */}
                       <span className="inline-block px-3 py-1 rounded-full bg-[var(--primary-light)] text-[var(--primary-color)] text-xs font-bold uppercase tracking-wider mb-4">
                         {post.category}
                       </span>
@@ -145,64 +141,63 @@ function Blog() {
               )}
             </div>
 
-            {/* ================= COLUMNA DERECHA: Sidebar Sticky ================= */}
-            <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-28 self-start">
+            {/* ================= COLUMNA DERECHA: Sidebar Compacto ================= */}
+            <aside className="lg:col-span-4 space-y-6">
 
               {/* Widget: Búsqueda */}
-              <div className="bg-gray-50 p-6 rounded-xl">
-                <h4 className="text-xl font-bold text-[var(--pg-color)] mb-5">Search</h4>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl border border-gray-200/50">
+                <h4 className="text-lg font-bold text-[var(--pg-color)] mb-4 flex items-center gap-2">
+                  <Search size={18} className="text-[var(--primary-color)]" />
+                  Search
+                </h4>
                 <div className="relative">
                   <input
                     type="search"
-                    placeholder="Search..."
+                    placeholder="Search posts..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full h-[62px] pl-5 pr-24 rounded-xl bg-white border-0 focus:ring-2 focus:ring-[var(--primary-color)] outline-none text-gray-700 placeholder-gray-400 transition-shadow"
+                    className="w-full h-12 pl-4 pr-12 rounded-lg bg-white border border-gray-200 focus:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)]/20 outline-none text-sm text-gray-700 placeholder-gray-400 transition-all"
                   />
                   {searchQuery && (
                     <button
                       type="button"
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-16 top-0 h-[62px] w-10 text-gray-400 hover:text-gray-700 flex items-center justify-center transition-colors"
+                      className="absolute right-12 top-0 h-12 w-8 text-gray-400 hover:text-gray-700 flex items-center justify-center"
                     >
-                      <X size={20} />
+                      <X size={16} />
                     </button>
                   )}
-                  <button className="absolute right-0 top-0 h-[62px] w-[62px] bg-gradient-to-r from-[#4300e7] to-[#7d00fc] text-white rounded-r-xl flex items-center justify-center hover:opacity-90 transition-opacity">
-                    <Search size={20} />
+                  <button className="absolute right-0 top-0 h-12 w-12 bg-gradient-to-r from-[#4300e7] to-[#7d00fc] text-white rounded-r-lg flex items-center justify-center hover:opacity-90 transition-opacity">
+                    <Search size={16} />
                   </button>
                 </div>
               </div>
 
-              {/* Widget: Categorías (AHORA FUNCIONAL) */}
-              <div className="bg-gray-50 p-6 rounded-xl">
-                <h5 className="text-xl font-bold text-[var(--pg-color)] mb-5">Categories</h5>
-                <ul className="divide-y divide-gray-200">
+              {/* Widget: Categorías */}
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl border border-gray-200/50">
+                <h5 className="text-lg font-bold text-[var(--pg-color)] mb-4 flex items-center gap-2">
+                  <Asterisk size={18} className="text-[var(--primary-color)]" strokeWidth={3} />
+                  Categories
+                </h5>
+                <ul className="space-y-1">
                   {categories.map((cat, idx) => {
                     const isActive = cat.name === selectedCategory || (cat.name === "All" && !selectedCategory);
                     return (
                       <li
                         key={idx}
                         onClick={() => setSelectedCategory(cat.name === "All" ? null : cat.name)}
-                        className={`flex items-center justify-between py-3 first:pt-0 last:pb-0 cursor-pointer transition-colors ${isActive
-                            ? 'bg-white -mx-6 px-6 rounded-lg shadow-sm'
-                            : 'hover:bg-white/50'
+                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all ${isActive
+                          ? 'bg-white shadow-sm border border-gray-200'
+                          : 'hover:bg-white/70'
                           }`}
                       >
-                        <div className="flex items-center gap-2">
-                          <Asterisk
-                            size={16}
-                            className={isActive ? 'text-[var(--primary-color)]' : 'text-gray-400'}
-                            strokeWidth={isActive ? 3 : 2}
-                          />
-                          <span className={`text-lg font-medium transition-colors ${isActive ? 'text-[var(--primary-color)] font-bold' : 'text-[var(--secondary-color)]'
-                            }`}>
-                            {cat.name}
-                          </span>
-                        </div>
-                        <span className={`w-10 h-10 rounded-full flex items-center justify-center font-medium transition-all duration-300 ${isActive
-                            ? 'bg-[var(--primary-color)] text-white shadow-md'
-                            : 'bg-gray-200 text-[var(--secondary-color)]'
+                        <span className={`text-sm font-medium transition-colors ${isActive ? 'text-[var(--primary-color)] font-semibold' : 'text-gray-700'
+                          }`}>
+                          {cat.name}
+                        </span>
+                        <span className={`text-xs font-bold px-2.5 py-1 rounded-full transition-all ${isActive
+                          ? 'bg-[var(--primary-color)] text-white'
+                          : 'bg-gray-200 text-gray-600'
                           }`}>
                           {cat.count}
                         </span>
@@ -213,21 +208,24 @@ function Blog() {
               </div>
 
               {/* Widget: Publicaciones Recientes */}
-              <div className="bg-gray-50 p-6 rounded-2xl">
-                <h4 className="text-xl font-bold text-[var(--pg-color)] mb-5">Recent Post</h4>
-                <div className="space-y-5">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl border border-gray-200/50">
+                <h4 className="text-lg font-bold text-[var(--pg-color)] mb-4 flex items-center gap-2">
+                  <Calendar size={18} className="text-[var(--primary-color)]" />
+                  Recent Posts
+                </h4>
+                <div className="space-y-3">
                   {blogPosts.slice(0, 4).map((post, idx) => (
-                    <div key={idx} className="flex gap-4 group cursor-pointer">
+                    <div key={idx} className="flex gap-3 group cursor-pointer pb-3 border-b border-gray-200/50 last:border-0 last:pb-0">
                       <img
                         src={post.img}
                         alt={post.title}
-                        className="w-20 h-20 rounded-xl object-cover flex-shrink-0 group-hover:opacity-80 transition-opacity"
+                        className="w-16 h-16 rounded-lg object-cover flex-shrink-0 group-hover:opacity-80 transition-opacity"
                       />
-                      <div className="flex flex-col justify-center">
-                        <span className="flex items-center gap-1.5 text-sm font-semibold text-[var(--primary-color)] mb-1">
-                          <Calendar size={14} /> May 11, 2024
+                      <div className="flex flex-col justify-center min-w-0">
+                        <span className="flex items-center gap-1 text-xs font-semibold text-[var(--primary-color)] mb-0.5">
+                          <Calendar size={10} /> May 11, 2024
                         </span>
-                        <p className="text-base font-bold text-[var(--pg-color)] leading-snug group-hover:text-[var(--primary-color)] transition-colors line-clamp-2">
+                        <p className="text-sm font-bold text-[var(--pg-color)] leading-tight group-hover:text-[var(--primary-color)] transition-colors line-clamp-2">
                           {post.title}
                         </p>
                       </div>
