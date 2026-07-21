@@ -9,6 +9,7 @@ import ToursDetails from './Components/Page/Tours-Details'
 import Blog from './Components/Page/Blog'
 import BlogDetails from './Components/Page/BlogDetails'
 import Contact from './Components/Page/Contact'
+import Destination from './Components/Page/Destination'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-details/:id" element={<BlogDetails />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path='/destination' element={<Destination />} />
       </Routes>
       {location.pathname !== "/" && <Footer />}
     </>
