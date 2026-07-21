@@ -108,12 +108,12 @@ function Blog() {
                           {excerpt}
                         </p>
 
-                        <a href="#" className="inline-flex items-center gap-3 text-lg font-bold text-[var(--secondary-color)] uppercase group/link">
+                        <div className="inline-flex items-center gap-3 text-lg font-bold text-[var(--secondary-color)] uppercase group/link cursor-pointer">
                           Explore More
                           <span className="w-10 h-10 rounded-full bg-[var(--primary-color)] text-white flex items-center justify-center group-hover/link:bg-[var(--primary-dark)] transition-colors duration-300">
                             <FiArrowUpRight size={20} />
                           </span>
-                        </a>
+                        </div>
                       </div>
                     </article>
                   </Link>
