@@ -24,15 +24,15 @@ import abElement2 from "../../assets/about-element-2.webp";
 import abElement3 from "../../assets/about-element-3.webp";
 import { Play } from 'lucide-react'
 import { MapPin } from 'lucide-react'
-import DiscoverImg1 from '../../assets/discover-image-1.webp'
-import DiscoverImg2 from '../../assets/discover-image-2.webp'
-import DiscoverImg3 from '../../assets/discover-image-3.webp'
-import DiscoverImg4 from '../../assets/discover-image-4.webp'
+import DiscoverImg1 from '../../assets/Discover-image-1.webp'
+import DiscoverImg2 from '../../assets/Discover-image-2.webp'
+import DiscoverImg3 from '../../assets/Discover-image-3.webp'
+import DiscoverImg4 from '../../assets/Discover-image-4.webp'
 import steps1 from "./../../assets/steps-1.svg";
 import steps2 from "./../../assets/steps-2.svg";
 import steps3 from "./../../assets/steps-3.svg";
-import FeatureImg1 from "./../../assets/feature-image-1.webp";
-import FeatureImg2 from "./../../assets/feature-image-2.webp";
+import FeatureImg1 from "./../../assets/Feature-image-1.webp";
+import FeatureImg2 from "./../../assets/Feature-image-2.webp";
 import offerBG1 from "../../assets/offer-bg-1.webp"
 import offerBG2 from "../../assets/offer-bg-2.webp"
 import tstimage from '../../assets/tst-image-1.webp' // Imagen que no debe cambiar, situada a la izquierda de los testimonios
